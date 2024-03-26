@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "monash-volunteer-app",
+  "private_key_id": "7708a560c546f14dbaeed039327683f83162991c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDsDwhBE5aKNxZS\nwQxBFLrKTMoisHUf+RwkdcOaDE1LMTCiedCr43H5jV22pBQrZBlI4x4LAunzjgVj\n5MAaWbE6yfzYOtRmFBgRY8G7O57ftmnt1raT625fca3OutqpYUJu5RhHOdUAYWXE\nbfz5VfpOIatHFNDVUs6pZGjnvgt05VDelHLXf/LqxpykwegWtM+ZYSfiWsYGvCII\nKGJiveUVleVAEaQwGKW+Wdw9TGc+sPHZP79VFB8qZVTnMrv5XrCvcWcYW630ruIJ\ndInr7cuAd7ZD1+VsLmIxXwLOhPD4cMf89XRihka+Gg4Ubgkvw0A9WrHJGYQdOePj\nX+68PxY3AgMBAAECggEAZuMMaXTUrexhtfL/WNRkr6z1g1Yezq9AhWGwvhFzlPzd\nIkvu2CR7tlXXzTXJtrnbzWl0XD9KYgX6MnZvBm0mcqW8JzDJB67laJruwyEy13YF\nyIzHqkQ4qK//HfZSPPYvwu7mfJDn1lEdTpbT5ocDYI+LPCGF/hyoB6vEj5FFJA7C\nvDH5oyQae7rFahIGnyHp5BC4DiNieLEacljFYmaYRgwA0Xd/C9qL/Lvgry/PrnGy\nTdRNJkd6+KUvOKlWCK3MvIqbpe+8an+9rtWOg7UXXhw+wjweUk06ZartqSOgHnwf\nMQskyTlM0PyqXfjk0Wlpy3iG48Wa6434SvJfE/27VQKBgQD2VrhYEZo7ipB2R87e\nDbwuBfvgY1RWGudMEdtIkLHnbtKAg/Wgi1hr1EO7aBu2nbt9Mfws7pqvfpQ+ynmh\n4ZGT1dOkq2hgXD5JuhfYt5Gl3X9CWla1H2YLCIY6W0cGAzXw6S5pCW5zlzrDq9zJ\nCnpkt91cRGjFp6h7V6FlsJ5t6wKBgQD1URlZXkiSjBn6/x2vGVOte3F3fWq+zjqJ\ni+1cQWuCE0HAnFzS9l5aDNxivXHoq+FcOgukxH2qA4c0EvnmswJ3HApxKkgmOh2z\nwq5CH/83srPdzzFbjDCD1kDDgJ/Sn+hlQZSGrXwOsabSQX+6F1iqOLihCQ/O+sYV\nvZlw0ByJ5QKBgGHXQ9TG+QlZGdPA5atQrUNiYQ5YpXClsuSF2yDRR7fyTm14/CBN\n+EqrvlM7IHbB42vwZIa8Jng5wEvIQ9NGMnoTXcJzyjsrqBnEbiBHmPPWK+uA0huS\nYwdS1W1sP6NltxD+rM5PTq1ejZqWMlUvcjl6xdMV4L9QvhxvS82F/wcNAoGAGnbb\nQzbWoWiXzOoEq8URr99nSDqxb1AUJI6B1rf//xJQv5Setut5FkHY7JX/WdhhAXAJ\nnYbM/7BNv6JkbyzUkUDnJ3omOml+lsvjvKJzB/ExUjZt3rBq824DopOXqkMx8Op4\nOWcxwOwNURVb0BmAqSxhTo4JtIx9Hg9MJE1vJrkCgYEAtOIXg8CfSQ+4R4q2045K\n9s+xYNYyCVNpw5R46HCxXMn1hMrkjgy+02QKi7wuhTO3R8FUjT7P+PMJQXMdrsZn\nP5tmxb98BRtFhs6xioIncj07X1SeaWeeq2/ph7LEwfqYloL/zNi9TqvpGReEHuaT\ncwUNFbvQUXXQJZm3V0rORGk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "monash-service-account@monash-volunteer-app.iam.gserviceaccount.com",
+  "client_id": "103024672049088972098",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/monash-service-account%40monash-volunteer-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
