@@ -55,7 +55,7 @@ const SignupFormSchema = z
     path: ["confirmPassword"],
   });
 
-const SignupForm = ({ params }) => {
+const SignupForm = ({ role }) => {
   const {
     register,
     handleSubmit,
@@ -73,7 +73,7 @@ const SignupForm = ({ params }) => {
   }, [watch().password]);
   const togglePassVisibility = () => setIsVisiblePass((prev) => !prev);
   const saveUser = async (data) => {
-    data.role = params.role;
+    data.role = role;
     const { confirmPassword, ...user } = data;
     console.log(user);
     try {

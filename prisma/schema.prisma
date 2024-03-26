@@ -88,6 +88,7 @@ model Job {
   charity     Charity  @relation(fields: [charityId], references: [userId])
   studentId   String?
   student     Student? @relation(fields: [studentId], references: [userId])
+  cvSkills CvSkills []
 }
 
 model Certificate {
@@ -114,6 +115,8 @@ model CvSkills {
   skill String
   cvId  String
   cv    Cv     @relation(fields: [cvId], references: [id])
+  jobId String
+  job Job? @relation(fields: [jobId], references: [id])
 }
 
 model VerificationToken {
