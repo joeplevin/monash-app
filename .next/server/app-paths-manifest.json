@@ -1,6 +1,7 @@
 {
+  "/auth/forgotPassword/page": "app/auth/forgotPassword/page.js",
+  "/charity/edit-profile/page": "app/charity/edit-profile/page.js",
   "/auth/signin/page": "app/auth/signin/page.js",
-  "/auth/admin/signup/page": "app/auth/admin/signup/page.js",
-  "/denied/page": "app/denied/page.js",
-  "/student/page": "app/student/page.js"
+  "/page": "app/page.js",
+  "/charity/page": "app/charity/page.js"
 }
