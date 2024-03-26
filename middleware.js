@@ -22,6 +22,12 @@ export default withAuth(
     ) {
       return NextResponse.redirect(new URL("/denied", req.url));
     }
+    if (
+      req.nextUrl.pathname.startsWith("/auth/admin/signup") &&
+      req.nextauth.token?.user.role !== "admin"
+    ) {
+      return NextResponse.redirect(new URL("/denied", req.url));
+    }
   },
   {
     callbacks: {
@@ -35,5 +41,10 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/student/:path*", "/admin/:path*", "/charity/:path*"],
+  matcher: [
+    "/student/:path*",
+    "/admin/:path*",
+    "/charity/:path*",
+    "/auth/admin/:path*",
+  ],
 };

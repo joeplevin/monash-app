@@ -78,16 +78,17 @@ model Admin {
 }
 
 model Job {
-  id          String   @id @default(cuid())
+  id          String     @id @default(cuid())
   title       String
   description String
   location    String
   completed   Boolean
   progress    String
   charityId   String
-  charity     Charity  @relation(fields: [charityId], references: [userId])
+  charity     Charity    @relation(fields: [charityId], references: [userId])
   studentId   String?
-  student     Student? @relation(fields: [studentId], references: [userId])
+  student     Student?   @relation(fields: [studentId], references: [userId])
+  cvSkills    CvSkills[]
 }
 
 model Certificate {
@@ -114,6 +115,8 @@ model CvSkills {
   skill String
   cvId  String
   cv    Cv     @relation(fields: [cvId], references: [id])
+  jobId String
+  job   Job?   @relation(fields: [jobId], references: [id])
 }
 
 model VerificationToken {

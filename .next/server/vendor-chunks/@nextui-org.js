@@ -2918,59 +2918,6 @@ const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__W
 const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\image\dist\index.mjs#useImage`);
 
 
-/***/ }),
-
-/***/ "(rsc)/./node_modules/@nextui-org/navbar/dist/index.mjs":
-/*!********************************************************!*\
-  !*** ./node_modules/@nextui-org/navbar/dist/index.mjs ***!
-  \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Navbar: () => (/* binding */ e0),
-/* harmony export */   NavbarBrand: () => (/* binding */ e1),
-/* harmony export */   NavbarContent: () => (/* binding */ e2),
-/* harmony export */   NavbarItem: () => (/* binding */ e3),
-/* harmony export */   NavbarMenu: () => (/* binding */ e4),
-/* harmony export */   NavbarMenuItem: () => (/* binding */ e5),
-/* harmony export */   NavbarMenuToggle: () => (/* binding */ e6),
-/* harmony export */   NavbarProvider: () => (/* binding */ e7),
-/* harmony export */   useNavbar: () => (/* binding */ e8),
-/* harmony export */   useNavbarContext: () => (/* binding */ e9)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#Navbar`);
-
-const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarBrand`);
-
-const e2 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarContent`);
-
-const e3 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarItem`);
-
-const e4 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarMenu`);
-
-const e5 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarMenuItem`);
-
-const e6 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarMenuToggle`);
-
-const e7 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#NavbarProvider`);
-
-const e8 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#useNavbar`);
-
-const e9 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\Miranda\monash-app\node_modules\@nextui-org\navbar\dist\index.mjs#useNavbarContext`);
-
-
 /***/ })
 
 };

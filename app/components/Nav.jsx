@@ -1,3 +1,4 @@
+"use client";
 import {
   Navbar,
   NavbarBrand,
@@ -12,10 +13,23 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import SigninButton from "./SigninButton";
+import { useState } from "react";
 
 const Nav = () => {
+  const [burgerToggle, setBurgerToggle] = useState(true);
+
   return (
     <Navbar isBordered maxWidth="full">
+      <NavbarContent className="flex" justify="start">
+        <NavbarItem>
+          <Button
+            variant="light"
+            onClick={() => setBurgerToggle(!burgerToggle)}
+          >
+            {burgerToggle ? <Bars3Icon /> : <XMarkIcon />}
+          </Button>
+        </NavbarItem>
+      </NavbarContent>
       <NavbarContent
         className="lg: w-100 h-50 md: w-50 h-25 sm:w-25 h-12.5 flex"
         justify="start"
