@@ -36,7 +36,7 @@ const CharityEditPage = () => {
     }));
   };
   return (
-    <div className="flex flex-wrap justify-center p-5">
+    <div className="">
       {charityJobs.map((charityJobs, index) => (
         <>
           <Card key={index} className="w-96 h-90 m-2">

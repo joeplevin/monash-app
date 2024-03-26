@@ -2891,47 +2891,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "(rsc)/./node_modules/@nextui-org/button/dist/index.mjs":
-/*!********************************************************!*\
-  !*** ./node_modules/@nextui-org/button/dist/index.mjs ***!
-  \********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Button: () => (/* binding */ e0),
-/* harmony export */   ButtonGroup: () => (/* binding */ e1),
-/* harmony export */   ButtonGroupProvider: () => (/* binding */ e2),
-/* harmony export */   useButton: () => (/* binding */ e3),
-/* harmony export */   useButtonGroup: () => (/* binding */ e4),
-/* harmony export */   useButtonGroupContext: () => (/* binding */ e5)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#Button`);
-
-const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#ButtonGroup`);
-
-const e2 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#ButtonGroupProvider`);
-
-const e3 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#useButton`);
-
-const e4 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#useButtonGroup`);
-
-const e5 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\button\dist\index.mjs#useButtonGroupContext`);
-
-
-/***/ }),
-
 /***/ "(rsc)/./node_modules/@nextui-org/image/dist/index.mjs":
 /*!*******************************************************!*\
   !*** ./node_modules/@nextui-org/image/dist/index.mjs ***!
@@ -2957,38 +2916,6 @@ const __default__ = proxy.default;
 const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\image\dist\index.mjs#Image`);
 
 const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\image\dist\index.mjs#useImage`);
-
-
-/***/ }),
-
-/***/ "(rsc)/./node_modules/@nextui-org/link/dist/index.mjs":
-/*!******************************************************!*\
-  !*** ./node_modules/@nextui-org/link/dist/index.mjs ***!
-  \******************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Link: () => (/* binding */ e0),
-/* harmony export */   LinkIcon: () => (/* binding */ e1),
-/* harmony export */   useLink: () => (/* binding */ e2)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\link\dist\index.mjs`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\link\dist\index.mjs#Link`);
-
-const e1 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\link\dist\index.mjs#LinkIcon`);
-
-const e2 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`C:\Users\User\Desktop\monash-app\node_modules\@nextui-org\link\dist\index.mjs#useLink`);
 
 
 /***/ }),

@@ -1,7 +1,6 @@
 {
   "/not-found": "app/not-found.js",
-  "/charity/page": "app/charity/page.js",
-  "/charity/createjob/page": "app/charity/createjob/page.js",
-  "/charity/jobapplications/page": "app/charity/jobapplications/page.js",
+  "/charity/charityprofilejobs/page": "app/charity/charityprofilejobs/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
