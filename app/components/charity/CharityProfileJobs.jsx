@@ -1,40 +1,55 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Card,
   CardHeader,
   CardBody,
   Button,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  useDisclosure,
-  ModalFooter,
   Textarea,
+  Link,
+  Input,
 } from "@nextui-org/react";
-import testData from "/lib/charityjobcardData.json";
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  UserIcon,
+  EnvelopeIcon,
+  PhoneIcon,
+  KeyIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/20/solid";
+import { z } from "zod";
+import validator from "validator";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { getSession } from "next-auth/react";
+import { updateCharity } from "@/lib/actions/charityActions";
 
-const CharityProfileJobs = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+const CharityProfileJobsSchema = z.object({
+  name: z.string(),
 
-  //Pulling data from a JSOn file (needs to be changed to a sql pull)
-  const [charityJobs] = useState(() => testData, []);
+  description: z.string(),
 
-  useEffect(() => {
-    fetch("http://localhost:3000/charityjobcardData.json")
-      .then((res) => res.json())
-      .then((jsonData) => SVGMetadataElement(jsonData));
+  location: z.string(),
+});
+
+const CharityProfileJobsDisplay = (charity) => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(CharityProfileJobsSchema),
   });
 
-  const handleEdit = (e) => {
-    const { name, value } = e.target;
-    setCharityData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const router = useRouter();
+
   return (
     <>
       <h1>
@@ -50,27 +65,23 @@ const CharityProfileJobs = () => {
             <center>Your Charity</center>
           </h1>
           <div className="flex flex-wrap justify-center p-5">
-            {charityJobs.map((charityJobs, index) => (
-              <>
-                <div className="flex flex-row justify-center w-[400px]">
-                  <Card key={index} className="w-96 h-90 m-2 justify-center">
-                    <CardHeader className="absolute top-1 flex-col items-start"></CardHeader>
-                    <div className="mb-10">
-                      <CardBody>
-                        <p className="text-large text-center">
-                          {charityJobs.title}
-                        </p>
-                        <br></br>
-                        <p className="text-md">{charityJobs.desc}</p>
-                        <br></br>
-                        <br></br>
-                        <p className="text-md">{charityJobs.location}</p>
-                      </CardBody>
-                    </div>
-                  </Card>
-                </div>
-              </>
-            ))}
+            <>
+              <div className="flex flex-row justify-center w-[400px]">
+                <Card className="w-96 h-90 m-2 justify-center">
+                  <CardHeader className="absolute top-1 flex-col items-start"></CardHeader>
+                  <div className="mb-10">
+                    <CardBody>
+                      <p className="text-large text-center">{charity.name}</p>
+                      <br></br>
+                      <p className="text-md">{charity.description}</p>
+                      <br></br>
+                      <br></br>
+                      <p className="text-md">{charity.location}</p>
+                    </CardBody>
+                  </div>
+                </Card>
+              </div>
+            </>
           </div>
         </Card>
         <div className="flex justify-center">
@@ -79,27 +90,23 @@ const CharityProfileJobs = () => {
               <center>Your Jobs</center>
             </h1>
             <div className="flex flex-wrap justify-center p-5">
-              {charityJobs.map((charityJobs, index) => (
-                <>
-                  <div className="flex flex-row w-[400px] left-[900px]">
-                    <Card key={index} className="w-96 h-90 m-2 justify-center">
-                      <CardHeader className="absolute top-1 flex-col items-start"></CardHeader>
-                      <div className="mb-10">
-                        <CardBody>
-                          <p className="text-large text-center">
-                            {charityJobs.title}
-                          </p>
-                          <br></br>
-                          <p className="text-md">{charityJobs.desc}</p>
-                          <br></br>
-                          <br></br>
-                          <p className="text-md">{charityJobs.location}</p>
-                        </CardBody>
-                      </div>
-                    </Card>
-                  </div>
-                </>
-              ))}
+              <>
+                <div className="flex flex-row w-[400px] left-[900px]">
+                  <Card className="w-96 h-90 m-2 justify-center">
+                    <CardHeader className="absolute top-1 flex-col items-start"></CardHeader>
+                    <div className="mb-10">
+                      <CardBody>
+                        <p className="text-large text-center">{}</p>
+                        <br></br>
+                        <p className="text-md">{}</p>
+                        <br></br>
+                        <br></br>
+                        <p className="text-md">{}</p>
+                      </CardBody>
+                    </div>
+                  </Card>
+                </div>
+              </>
             </div>
           </Card>
         </div>
@@ -108,4 +115,4 @@ const CharityProfileJobs = () => {
   );
 };
 
-export default CharityProfileJobs;
+export default CharityProfileJobsDisplay;

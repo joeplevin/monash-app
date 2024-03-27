@@ -109,7 +109,7 @@ const CreateJobCard = () => {
       <Button
         as={Link}
         href="/charity"
-        className="fixed top-13 right-4 text-white gap-2 rounded-lg"
+        className="fixed top-13 right-4 text-white gap-2 rounded-lg mt-10"
         color="primary"
         size="lg"
       >

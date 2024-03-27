@@ -1,5 +1,48 @@
 {
-  "node": {},
+  "node": {
+    "516103160d27520f65db0d35cb44f65ea64b4575": {
+      "workers": {
+        "app/charity/editcharityprofile/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!",
+        "app/charity/createjob/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/charityprofilejobs/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/editjob/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/charity/editcharityprofile/page": "rsc",
+        "app/charity/createjob/page": "action-browser",
+        "app/charity/charityprofilejobs/page": "action-browser",
+        "app/charity/editjob/page": "rsc"
+      }
+    },
+    "d04214d9ca3bdcb2cb9d2dd3fbfdc56fc97a9694": {
+      "workers": {
+        "app/charity/editcharityprofile/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!",
+        "app/charity/createjob/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/charityprofilejobs/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/editjob/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/charity/editcharityprofile/page": "rsc",
+        "app/charity/createjob/page": "action-browser",
+        "app/charity/charityprofilejobs/page": "action-browser",
+        "app/charity/editjob/page": "rsc"
+      }
+    },
+    "d6111f0a47f51ff14b14ef7f903f70fb7e7064ec": {
+      "workers": {
+        "app/charity/editcharityprofile/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!",
+        "app/charity/createjob/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/charityprofilejobs/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=true!",
+        "app/charity/editjob/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CUser%5C%5CDesktop%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CcharityActions.js%22%2C%5B%22getCharity%22%2C%22createJob%22%2C%22updateCharity%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/charity/editcharityprofile/page": "rsc",
+        "app/charity/createjob/page": "action-browser",
+        "app/charity/charityprofilejobs/page": "action-browser",
+        "app/charity/editjob/page": "rsc"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "UBpxeI+appUf4FrLKUZx+irV3q3Rbxn2ofJkbIRwzPc="
+  "encryptionKey": "QfOVwXTgdt+04ZytyuH8lM8fbTN76B54/0Pn4hvHbaI="
 }

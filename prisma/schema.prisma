@@ -65,6 +65,9 @@ model Student {
 
 model Charity {
   id           String        @id @default(cuid())
+  name         String        @default("")
+  description  String        @default("")
+  location     String        @default("")
   userId       String        @unique
   user         User          @relation(fields: [userId], references: [id])
   Jobs         Job[]
@@ -78,17 +81,17 @@ model Admin {
 }
 
 model Job {
-  id          String   @id @default(cuid())
+  id          String     @id @default(cuid())
   title       String
   description String
   location    String
   completed   Boolean
   progress    String
   charityId   String
-  charity     Charity  @relation(fields: [charityId], references: [userId])
+  charity     Charity    @relation(fields: [charityId], references: [userId])
   studentId   String?
-  student     Student? @relation(fields: [studentId], references: [userId])
-  cvSkills CvSkills []
+  student     Student?   @relation(fields: [studentId], references: [userId])
+  cvSkills    CvSkills[]
 }
 
 model Certificate {
@@ -116,7 +119,7 @@ model CvSkills {
   cvId  String
   cv    Cv     @relation(fields: [cvId], references: [id])
   jobId String
-  job Job? @relation(fields: [jobId], references: [id])
+  job   Job?   @relation(fields: [jobId], references: [id])
 }
 
 model VerificationToken {
