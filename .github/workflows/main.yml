@@ -21,6 +21,13 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install -r requirements.txt
+        # Assuming SpaCy is listed in requirements.txt
+        # If you need to install a specific SpaCy model, do it in the next step
+
+    - name: Install SpaCy language model
+      run: |
+        python -m spacy download en_core_web_sm
+        # Replace 'en_core_web_sm' with your desired model
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
