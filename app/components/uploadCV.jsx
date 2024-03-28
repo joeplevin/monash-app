@@ -4,13 +4,14 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { getSignedURL } from "@/lib/actions/actions";
 
-const UploadCV = ({ user }) => {
+const UploadCV = (user) => {
   const [content, setContent] = useState("");
   const [file, setFile] = useState(undefined);
   const [fileUrl, setFileUrl] = useState("");
   const [statusMessage, setStatusMessage] = useState("");
   const [loading, setLoading] = useState(false);
   console.log("content", content, "file", file);
+  console.log("upload cv user", user);
   const buttonDisabled = content.length < 1 || loading;
 
   //Hash function to ensure integrity of the file
@@ -90,15 +91,7 @@ const UploadCV = ({ user }) => {
         )}
 
         <div className="flex gap-4 items-start pb-4 w-full">
-          <div className="rounded-full h-12 w-12 overflow-hidden relative">
-            <Image
-              className="object-cover"
-              src={user.image || "/user.png"}
-              alt={user.name || "user profile picture"}
-              priority={true}
-              fill={true}
-            />
-          </div>
+          <div className="rounded-full h-12 w-12 overflow-hidden relative"></div>
 
           <div className="flex flex-col gap-2 w-full">
             <div>{user.name}</div>

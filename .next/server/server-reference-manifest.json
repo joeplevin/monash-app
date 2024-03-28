@@ -7,64 +7,8 @@
       "layer": {
         "app/student/page": "action-browser"
       }
-    },
-    "454d78e454cc720cb07ed035801c7e7170e58b69": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "74e5f58f99e6b66ffee644e13a747ce0fef2fe44": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "87c5eed77a662041a1e663d6721656e5e7ae6fd9": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "d40f25006b1d936e684a5c653f34dc3423018159": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "e3c3d38b3d7fe6688861524339e1b0c2420ce55e": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "7485b1da87232421b00dd7754099a774cb566fec": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
-    },
-    "e45f2ba6db4b49774990fec19ce04c4d1b6dc36d": {
-      "workers": {
-        "app/student/edit-profile/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CMiranda%5C%5Cmonash-app%5C%5Clib%5C%5Cactions%5C%5CuserActions.js%22%2C%5B%22updateUserDetails%22%2C%22%24%24ACTION_0%22%5D%5D%5D&__client_imported__=true!"
-      },
-      "layer": {
-        "app/student/edit-profile/page": "action-browser"
-      }
     }
   },
   "edge": {},
-  "encryptionKey": "ONQYL8NyEl5U3R80ULFT0jMILrNPJ6O7kd6lqGrvAyw="
+  "encryptionKey": "kmTQcJHOu7K8J+2B0PkkLRTBA7Vf15PQirZInaaO81Y="
 }

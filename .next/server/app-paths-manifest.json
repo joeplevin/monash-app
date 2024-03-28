@@ -1,8 +1,6 @@
 {
-  "/student/view-cv/page": "app/student/view-cv/page.js",
+  "/not-found": "app/not-found.js",
   "/student/page": "app/student/page.js",
-  "/student/edit-profile/page": "app/student/edit-profile/page.js",
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/student/view-cv/page": "app/student/view-cv/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

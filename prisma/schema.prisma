@@ -114,9 +114,9 @@ model CvSkills {
   id    String @id @default(cuid())
   skill String
   cvId  String
-  cv    Cv     @relation(fields: [cvId], references: [id])
+  cv    Cv[]
   jobId String
-  job   Job?   @relation(fields: [jobId], references: [id])
+  job   Job[]
 }
 
 model VerificationToken {
