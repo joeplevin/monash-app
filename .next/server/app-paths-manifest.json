@@ -1,7 +1,8 @@
 {
-  "/auth/forgotPassword/page": "app/auth/forgotPassword/page.js",
-  "/charity/edit-profile/page": "app/charity/edit-profile/page.js",
-  "/auth/signin/page": "app/auth/signin/page.js",
+  "/student/view-cv/page": "app/student/view-cv/page.js",
+  "/student/page": "app/student/page.js",
+  "/student/edit-profile/page": "app/student/edit-profile/page.js",
   "/page": "app/page.js",
-  "/charity/page": "app/charity/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

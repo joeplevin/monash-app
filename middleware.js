@@ -28,6 +28,30 @@ export default withAuth(
     ) {
       return NextResponse.redirect(new URL("/denied", req.url));
     }
+    if (
+      req.nextUrl.pathname.startsWith("/auth/admin/signup") &&
+      req.nextauth.token?.user.role !== "admin"
+    ) {
+      return NextResponse.redirect(new URL("/denied", req.url));
+    }
+    if (
+      req.nextUrl.pathname == "/" &&
+      req.nextauth.token?.user.role == "student"
+    ) {
+      return NextResponse.redirect(new URL("/student", req.url));
+    }
+    if (
+      req.nextUrl.pathname == "/" &&
+      req.nextauth.token?.user.role == "admin"
+    ) {
+      return NextResponse.redirect(new URL("/admin", req.url));
+    }
+    if (
+      req.nextUrl.pathname == "/" &&
+      req.nextauth.token?.user.role == "charity"
+    ) {
+      return NextResponse.redirect(new URL("/charity", req.url));
+    }
   },
   {
     callbacks: {
@@ -46,5 +70,6 @@ export const config = {
     "/admin/:path*",
     "/charity/:path*",
     "/auth/admin/:path*",
+    "/",
   ],
 };

@@ -17,6 +17,21 @@ const HomePage = () => {
           </Button>
         </>
       )}
+      {session?.user.role == "student" && (
+        <Button as={Link} href="/student">
+          Dashboard
+        </Button>
+      )}
+      {session?.user.role == "charity" && (
+        <Button as={Link} href="/charity">
+          Dashboard
+        </Button>
+      )}
+      {session?.user.role == "admin" && (
+        <Button as={Link} href="/admin">
+          Dashboard
+        </Button>
+      )}
     </div>
   );
 };
