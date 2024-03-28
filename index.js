@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 // Function to call a Python script
 function runPythonScript() {
     // Adjust the path according to your Python script's location
-    const pythonScriptPath = 'lib/model.py;
+    const pythonScriptPath = 'lib/model.py';
 
     exec(`python ${pythonScriptPath}`, (error, stdout, stderr) => {
         if (error) {
