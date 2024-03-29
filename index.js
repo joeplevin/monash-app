@@ -46,6 +46,7 @@ export const runPythonScript = async (pdfUrl) => {
       console.log("Python script output:", data.toString());
       try {
         const resumeSkills = JSON.parse(data.toString());
+        return resumeSkills;
         console.log(resumeSkills);  // Now you have the resume skills as a JavaScript object
       } catch (error) {
         console.error("Error parsing Python script output:", error);
