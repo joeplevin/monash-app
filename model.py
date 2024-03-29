@@ -1,9 +1,10 @@
 import spacy
 import os
 import sys
+import json
 from pdfminer.high_level import extract_text
 
-# Predefined skills list
+# Define a list of technical skills to look for in resumes
 skills_list = [
     "Python", "Java", "JavaScript", "C#", "C++", "Ruby", "PHP", "Swift", "Kotlin", "TypeScript",
     "Go", "Rust", "HTML5", "CSS3", "Bootstrap", "jQuery", "AJAX", "Agile Methodologies", "Scrum",
@@ -19,66 +20,61 @@ skills_list = [
     "iOS Development", "Android Development", "Internet of Things (IoT)", "Blockchain", "Quantum Computing"
 ]
 
-# Try to load the pre-trained SpaCy model
+# Attempt to load the SpaCy model
 try:
     nlp = spacy.load("en_core_web_sm")
 except Exception as e:
-    print(f"Failed to load SpaCy model: {e}")
+    print(json.dumps({"error": f"Failed to load SpaCy model: {e}"}))
     sys.exit(1)
 
-# Function to read from a PDF file
+# Function to extract text from a PDF file
 def read_pdf_file(file_path):
     try:
         return extract_text(file_path)
     except Exception as e:
-        print(f"Failed to extract text from {file_path}: {e}")
+        print(json.dumps({"error": f"Failed to extract text from {file_path}: {e}"}))
         return ""
 
 # Initialize a dictionary to store resume names and their matched skills
 resume_skills = {}
 
-# Function to process each resume
+# Process each resume to find matching skills
 def process_resume(file_path):
     resume_text = read_pdf_file(file_path).lower()
     if not resume_text:
-        return  # Skip processing if reading failed
+        return  # Skip processing if text extraction failed
 
     try:
-        # Process the resume text with SpaCy
+        # Use SpaCy to process the extracted text
         doc = nlp(resume_text)
         extracted_skills = set([entity.text for entity in doc.ents if entity.label_ in {"ORG", "NORP", "GPE", "LANGUAGE"}])
 
-        # Simple text matching for predefined skills in 'skills_list'
+        # Match the extracted text against the predefined skills list
         matched_skills = set([skill for skill in skills_list if skill.lower() in resume_text])
 
-        # Combine the results
+        # Combine skills found through NLP and direct matching
         all_skills = extracted_skills.union(matched_skills)
 
-        # Add the skills set to the resume_skills dictionary
-        resume_skills[os.path.basename(file_path)] = all_skills
+        # Update the dictionary with skills found in the current resume
+        resume_skills[os.path.basename(file_path)] = list(all_skills)
 
-        print(f"Skills in {os.path.basename(file_path)}:")
-        print(all_skills, '\n')
     except Exception as e:
-        print(f"Error processing resume {file_path}: {e}")
+        print(json.dumps({"error": f"Error processing resume {file_path}: {e}"}))
 
-# Main function to handle command line argument for the CV file path
+# Main function to process the resume provided via command-line argument
 def main(cv_path):
     if not os.path.isfile(cv_path):
-        print("The specified path does not point to a file.")
+        print(json.dumps({"error": "The specified path does not point to a file."}))
         return
 
-    # Process the resume
     process_resume(cv_path)
 
-    # After processing the resume, print out the skills associated with it
-    for resume, skills in resume_skills.items():
-        print(f"Skills in {resume}:")
-        print(skills, '\n')
+    # Output the final dictionary of resumes and their associated skills as JSON
+    print(json.dumps(resume_skills, indent=2))
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python script.py <path_to_cv>")
+        print(json.dumps({"error": "Usage: python script.py <path_to_cv>"}))
         sys.exit(1)
 
     cv_path = sys.argv[1]
