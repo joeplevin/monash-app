@@ -1,5 +1,5 @@
 {
+  "/student/page": "app/student/page.js",
   "/student/view-cv/page": "app/student/view-cv/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/student/page": "app/student/page.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }
