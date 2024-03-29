@@ -1,4 +1,4 @@
-import SignupForm from "@/app/components/SignupForm";
+import SignupForm from "@/app/components/auth/SignupForm";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
 

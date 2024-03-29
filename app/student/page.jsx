@@ -2,12 +2,12 @@ import { getServerSession } from "next-auth";
 import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { Input, Button } from "@nextui-org/react";
-import UploadCV from "@/app/components/uploadCV";
+import UploadCV from "@/app/components/student/uploadCV";
 import { getStudent } from "@/lib/actions/studentActions";
 import { Document } from "@react-pdf/renderer";
 import { DocumentIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import PDFView from "../components/PDFView";
+import PDFView from "../components/student/PDFView";
 import StudentDetails from "../components/student/StudentDetails";
 
 const StudentProfile = async () => {

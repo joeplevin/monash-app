@@ -1,6 +1,6 @@
 {
-  "/not-found": "app/not-found.js",
   "/student/page": "app/student/page.js",
-  "/student/view-cv/page": "app/student/view-cv/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/auth/signin/page": "app/auth/signin/page.js",
+  "/auth/charity/signup/page": "app/auth/charity/signup/page.js",
+  "/auth/student/signup/page": "app/auth/student/signup/page.js"
 }

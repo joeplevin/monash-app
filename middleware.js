@@ -70,6 +70,5 @@ export const config = {
     "/admin/:path*",
     "/charity/:path*",
     "/auth/admin/:path*",
-    "/",
   ],
 };

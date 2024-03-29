@@ -1,4 +1,4 @@
-import ResetPasswordForm from "@/app/components/ResetPasswordForm";
+import ResetPasswordForm from "@/app/components/auth/ResetPasswordForm";
 import { verifyJwt } from "@/lib/jwt";
 import React from "react";
 

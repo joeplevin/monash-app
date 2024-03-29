@@ -16,7 +16,7 @@ import { z } from "zod";
 import validator from "validator";
 import { useEffect } from "react";
 import { passwordStrength } from "check-password-strength";
-import PasswordStrength from "../PasswordStrength";
+import PasswordStrength from "../auth/PasswordStrength";
 import { updateUserDetails } from "@/lib/actions/userActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";

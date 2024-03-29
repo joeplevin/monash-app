@@ -1,4 +1,4 @@
-import SigninForm from "@/app/components/SigninForm";
+import SigninForm from "@/app/components/auth/SigninForm";
 import Link from "next/link";
 const SignInPage = ({ searchParams }) => {
   console.log("search Params", searchParams);

@@ -11,15 +11,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/student/page.js"
     ],
-    "/student/view-cv/page": [
+    "/auth/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/student/view-cv/page.js"
+      "static/chunks/app/auth/signin/page.js"
     ],
-    "/not-found": [
+    "/auth/student/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/auth/student/signup/page.js"
+    ],
+    "/auth/charity/signup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/auth/charity/signup/page.js"
     ]
   }
 }

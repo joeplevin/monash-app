@@ -50,7 +50,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Student       Student?
-  Charity       Charity?
+  charityId     String?
+  Charity       Charity?  @relation(fields: [charityId], references: [id])
   Admin         Admin?
 }
 
@@ -66,7 +67,10 @@ model Student {
 model Charity {
   id           String        @id @default(cuid())
   userId       String        @unique
-  user         User          @relation(fields: [userId], references: [id])
+  name         String        @default("Charity Name")
+  description  String        @default("Charity Description")
+  location     String        @default("Charity Location")
+  user         User[]
   Jobs         Job[]
   Certificates Certificate[]
 }

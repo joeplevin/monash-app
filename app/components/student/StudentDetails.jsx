@@ -8,8 +8,8 @@ import {
 } from "@nextui-org/react";
 import { DocumentIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import UploadCV from "@/app/components/uploadCV";
-import PDFView from "@/app/components/PDFView";
+import UploadCV from "@/app/components/student/uploadCV";
+import PDFView from "@/app/components/student/PDFView";
 
 const StudentDetails = ({ student }) => {
   const user = student?.user;
