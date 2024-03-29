@@ -82,9 +82,6 @@ const SigninForm = (params) => {
         >
           {isSubmitting ? "Signing In..." : "Sign In"}
         </Button>
-        <Button as={Link} href="/auth/signup">
-          Sign Up
-        </Button>
       </div>
     </form>
   );
