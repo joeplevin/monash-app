@@ -1,3 +1,10 @@
+import spacy 
+import requests
+import os 
+from pdfminer.high_level import extract_text
+import sys  
+
+
 x = [
     "Python", "Java", "JavaScript", "C#", "C++", "Ruby", "PHP", "Swift", "Kotlin", "TypeScript",
     "Go", "Rust", "HTML5", "CSS3", "Bootstrap", "jQuery", "AJAX", "Agile Methodologies", "Scrum",

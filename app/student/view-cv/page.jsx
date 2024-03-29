@@ -9,7 +9,7 @@ const ViewCV = async () => {
   const session = await getServerSession(authOptions);
   const user = session?.user;
   const student = await getStudent(user.id);
-  await runPythonScript();
+  await runPythonScript(student.Cv?.cvUrl);
   console.log("view cv", student.Cv?.cvUrl);
   return <PDFView cvUrl={student.Cv?.cvUrl} />;
 };
