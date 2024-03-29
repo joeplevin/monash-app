@@ -1,3 +1,8 @@
+import os
+import spacy
+from pdfminer.high_level import extract_text
+
+# Predefined list of skills to match against resumes
 x = [
     "Python", "Java", "JavaScript", "C#", "C++", "Ruby", "PHP", "Swift", "Kotlin", "TypeScript",
     "Go", "Rust", "HTML5", "CSS3", "Bootstrap", "jQuery", "AJAX", "Agile Methodologies", "Scrum",
@@ -8,23 +13,13 @@ x = [
     "Docker", "Kubernetes", "Jenkins", "Ansible", "Chef", "Puppet", "AWS", "Azure", "Google Cloud Platform",
     "Machine Learning Algorithms", "Deep Learning", "TensorFlow", "PyTorch", "Natural Language Processing (NLP)",
     "Computer Vision", "Big Data Technologies", "Hadoop", "Spark", "Network Security", "Cryptography",
-    "Ethical Hacking", "Security Audits and Compliance", "Incident Response", "Problem-Solving",
+    "Ethical Hacking", "Security Audits and Compliance", "Incident Response", "Problem-Solving", 
     "Communication", "Teamwork and Collaboration", "Adaptability", "Time Management", "Mobile Development",
     "iOS Development", "Android Development", "Internet of Things (IoT)", "Blockchain", "Quantum Computing"
 ]
 
 # Load the pre-trained SpaCy model
 nlp = spacy.load("en_core_web_sm")
-
-# Function to download a file from a URL
-def download_file(url):
-    local_filename = url.split('/')[-1]
-    with requests.get(url, stream=True) as r:
-        r.raise_for_status()
-        with open(local_filename, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                f.write(chunk)
-    return local_filename
 
 # Function to read from a PDF file
 def read_pdf_file(file_path):
@@ -53,19 +48,22 @@ def process_resume(file_path):
     print(f"Skills in {os.path.basename(file_path)}:")
     print(all_skills, '\n')
 
-# Main function to handle command line argument for the CV URL
-def main(cv_url):
-    # Download the CV
-    cv_path = download_file(cv_url)
-    # Process the downloaded resume
-    process_resume(cv_path)
-    # Delete the downloaded file after processing
-    os.remove(cv_path)
-    # After processing the resume, print out the skills associated with it
-    for resume, skills in resume_skills.items():
-        print(f"Skills in {resume}:")
-        print(skills, '\n')
+# Function to recursively traverse directories and process PDF resumes
+def traverse_directories(directory):
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.pdf'):
+                process_resume(os.path.join(root, file))
 
-if __name__ == "__main__":
-    cv_url = sys.argv[1]  # The CV URL is the first command-line argument
-    main(cv_url)
+# Directory containing resumes
+resume_directory = "/Users/tylerblack/Downloads/archive-4/data/pdfresumes"
+
+# Start processing
+traverse_directories(resume_directory)
+
+# After processing all resumes, print out the skills associated with each resume
+for resume, skills in resume_skills.items():
+    print(f"Skills in {resume}:")
+    print(skills, '\n')
+
+print("fin")
