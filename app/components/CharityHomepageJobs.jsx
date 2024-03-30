@@ -22,7 +22,7 @@ const CharityHomepageJobs = (charityJob) => {
             </Button>
             <Button
               as={Link}
-              href={`/charity/jobapplications`}
+              href={`/charity/jobapplications/${charityJob.charityJob.id}`}
               className=" w-[10px] h-[30px] left-[140px] absolute"
             >
               <PencilIcon />
