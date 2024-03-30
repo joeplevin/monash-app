@@ -1,8 +1,0 @@
-{
-  "/auth/student/signup/page": "app/auth/student/signup/page.js",
-  "/auth/signin/page": "app/auth/signin/page.js",
-  "/student/page": "app/student/page.js",
-  "/page": "app/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/auth/charity/signup/page": "app/auth/charity/signup/page.js"
-}
