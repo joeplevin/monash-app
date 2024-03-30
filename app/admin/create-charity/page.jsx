@@ -1,88 +1,37 @@
-"use client";
-import React, { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
+import { getCharities, handleCharityDelete } from '@/lib/actions/charityActions';
+import { Button } from '@nextui-org/react';
+import Link from "next/link"
+import DeleteComponent from '@/app/admin/delete-charity/[id]/page';
 
-const Home = () => {
-  const [currentCharities, setCurrentCharities] = useState([]);
-
-  useEffect(() => {
-    // Fetch charities from your backend API
-    const fetchCharities = async () => {
-      try {
-        const response = await fetch('../api/getCharities');
-        if (response.ok) {
-          const data = await response.json();
-          setCurrentCharities(data); // Update state with fetched charities
-        } else {
-          console.error('Failed to fetch charities');
-        }
-      } catch (error) {
-        console.error('Error fetching charities:', error);
-      }
-    };
-
-    fetchCharities(); 
-  }, []); 
-  
-  const charityUsers = currentCharities.filter(charity => charity.role === 'charity');
-
-  const navigateToCreateCharity = () => {
-    window.location.href = '/admin/add-new-charity';
-  };
+const Home = async () => {
 
 
-  const navigateToEditCharityProfile = (charityId, charityData) => {
-    if (!charityData) {
-      console.error('Charity data not available');
-      return;
-    }
-    window.location.href = `/EditCharityProfile?id=${charityId}&charityName=${encodeURIComponent(charityData.charityName)}&charityDescription=${encodeURIComponent(charityData.charityDescription)}&charityLocation=${encodeURIComponent(charityData.charityLocation)}&charityWebsite=${encodeURIComponent(charityData.charityWebsite)}`;
-  };
-  
+  const charities = await getCharities();
+  console.log(charities);
 
-  // Function to handle deletion of a charity
-  const deleteCharity = async (charityId) => {
-    try {
-      const response = await fetch(`../api/deleteCharityRoute?id=${charityId}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
-        setCurrentCharities(prevCharities =>
-          prevCharities.filter(charity => charity.id !== charityId)
-        );
-        console.log('Charity deleted');
-      } else {
-        console.error('Error deleting charity');
-      }
-    } catch (error) {
-      console.error('Error deleting charity:', error);
-    }
-  };
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-semibold mb-4">Current Charities</h1>
-      {/* Render charityUsers instead of currentCharities */}
+      <h1 className="text-3xl font-semibold mb-4">Charities</h1>
+
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {charityUsers.map(charity => (
-          <li key={charity.id} className="bg-white rounded-md shadow-md p-6">
-            <p className="text-lg font-semibold">{charity.charityName}</p>
+        {charities.map(charity => (
+          <li key={charity.id} className=" bg-gradient-to-br from-gray-100 to-gray-200 rounded-md shadow-md p-6">
+            {/* charity.name to charity.charityName */}
+            <p className="text-lg font-semibold">{charity.name}</p>
             <div className="mt-4 flex justify-between">
-              <button onClick={() => navigateToEditCharityProfile(charity.id, charity)} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2">
-                Edit
-              </button>
-              <button onClick={() => deleteCharity(charity.id)} className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">
-                Delete
-              </button>
+              <Button as={Link} href={`/admin/edit-charity-profile/${charity.id}`} color="success">Edit</Button>
+              <DeleteComponent id={charity.id} /> {/* Render DeleteComponent with charity id */}
+       
             </div>
           </li>
         ))}
       </ul>
 
       <div className="mt-8">
-        <button onClick={navigateToCreateCharity} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">
-          Add New Charity
-        </button>
+        <Button as={Link} href="/admin/add-new-charity" color="primary">Add New Charity</Button>
+      
       </div>
     </div>
   );

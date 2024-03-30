@@ -10,7 +10,8 @@ const AdminHome = () => {
         const response = await fetch('../api/getUsers');
         if (response.ok) {
           const data = await response.json();
-          setAdminUsers(data); // Update state with fetched admin users
+          const adminUsersData = data.filter(user => user.role === 'admin');
+          setAdminUsers(adminUsersData);
         } else {
           console.error('Failed to fetch admin users');
         }
@@ -20,14 +21,14 @@ const AdminHome = () => {
     };
 
     fetchAdminUsers();
-  }, []); 
+  }, []);
 
   const navigateToAddUser = () => {
-    window.location.href = '/CreateAdmin';
+    window.location.href = '../admin/create-user';
   };
 
   const navigateToAddCharity = () => {
-    window.location.href = '/CreateCharity';
+    window.location.href = '../admin/create-charity';
   };
 
   const navigateToEditUser = (userId, userData) => {
@@ -36,7 +37,7 @@ const AdminHome = () => {
       return;
     }
     const queryString = Object.keys(userData).map(key => `${key}=${encodeURIComponent(userData[key])}`).join('&');
-    window.location.href = `/EditAdminProfile?id=${userId}&${queryString}`;
+    window.location.href = `/admin/EditAdminProfile?id=${userId}&${queryString}`;
   };
   
   const deleteUser = async (userId) => {
@@ -60,34 +61,37 @@ const AdminHome = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-semibold mb-4">Current Admin Users</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-semibold">Admin Users</h1>
+        <button onClick={navigateToAddCharity} className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">
+          Browse Charities
+        </button>
+      </div>
       
       {adminUsers.length > 0 ? (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-md shadow-md">
           <table className="table-auto w-full">
             <thead>
-              <tr>
-                <th className="border px-4 py-2">ID</th>
-                <th className="border px-4 py-2">First Name</th>
-                <th className="border px-4 py-2">Last Name</th>
-                <th className="border px-4 py-2">Email</th>
-                <th className="border px-4 py-2">Role</th>
-                <th className="border px-4 py-2">Actions</th>
+              <tr className="bg-gray-400 text-white">
+                <th className="px-4 py-2 border-b text-left">First Name</th>
+                <th className="px-4 py-2 border-b text-left">Last Name</th>
+                <th className="px-4 py-2 border-b text-left">Email</th>
+                <th className="px-4 py-2 border-b text-left">Role</th>
+                <th className="px-4 py-2 border-b text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
               {adminUsers.map(user => (
-                <tr key={user.id}>
-                  <td className="border px-4 py-2">{user.id}</td>
-                  <td className="border px-4 py-2">{user.firstName}</td>
-                  <td className="border px-4 py-2">{user.lastName}</td>
-                  <td className="border px-4 py-2">{user.email}</td>
-                  <td className="border px-4 py-2">{user.role}</td>
-                  <td className="border px-4 py-2">
-                    <button onClick={() => navigateToEditUser(user.id, user)} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2">
+                <tr key={user.id} className="text-gray-700">
+                  <td className="px-4 py-2 border-b">{user.firstName}</td>
+                  <td className="px-4 py-2 border-b">{user.lastName}</td>
+                  <td className="px-4 py-2 border-b">{user.email}</td>
+                  <td className="px-4 py-2 border-b">{user.role}</td>
+                  <td className="px-4 py-2 border-b">
+                    <button onClick={() => navigateToEditUser(user.id, user)} className="bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded-md mr-2">
                       Edit
                     </button>
-                    <button onClick={() => deleteUser(user.id)} className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">
+                    <button onClick={() => deleteUser(user.id)} className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md">
                       Delete
                     </button>
                   </td>
@@ -97,15 +101,12 @@ const AdminHome = () => {
           </table>
         </div>
       ) : (
-        <p>No admin users found</p>
+        <p>Loading users</p>
       )}
 
       <div className="mt-8">
-        <button onClick={navigateToAddUser} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2">
+        <button onClick={navigateToAddUser} className="bg-blue-700 hover:bg-blue-400 text-white py-2 px-4 rounded-md">
           Add New User
-        </button>
-        <button onClick={navigateToAddCharity} className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md">
-          Add New Charity
         </button>
       </div>
     </div>

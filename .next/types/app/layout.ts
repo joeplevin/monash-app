@@ -1,4 +1,4 @@
-// File: C:\Users\Miranda\monash-app\app\layout.js
+// File: /Users/matildadeakin/Documents/Year 3/Team project /monash-app-1/app/layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

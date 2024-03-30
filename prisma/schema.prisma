@@ -65,7 +65,7 @@ model Student {
 }
 
 model Charity {
-  id           String        @id @default(cuid())
+  id           String        @id @unique @default(cuid())
   userId       String        @unique
   name         String        @default("Charity Name")
   description  String        @default("Charity Description")
