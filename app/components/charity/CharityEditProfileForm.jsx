@@ -39,13 +39,13 @@ const CharityEditProfileSchema = z.object({
     ),
   description: z
     .string()
-    .min(10, "Edited Job Description is too short")
-    .max(200, "Edited Job Description is too long"),
+    .min(10, "Edited Charity Description is too short")
+    .max(200, "Edited Charity Description is too long"),
 
   location: z
     .string()
-    .min(10, "Edited Job location is too short")
-    .max(200, "Edited Job location is too long"),
+    .min(10, "Edited Charity location is too short")
+    .max(200, "Edited Charity location is too long"),
 });
 
 const EditCharityProfileForm = (charity) => {
@@ -62,7 +62,13 @@ const EditCharityProfileForm = (charity) => {
   const router = useRouter();
 
   const saveProfile = async (data) => {
-    const res = await updateCharity(data, charity.charity.id);
+    try {
+      const res = await updateCharity(data, charity.charity.id);
+      toast.success("Charity Profile Updated Successfully");
+      router.push("/charity");
+    } catch (error) {
+      toast.error("Error updating Charity Profile");
+    }
   };
 
   return (
@@ -106,7 +112,7 @@ const EditCharityProfileForm = (charity) => {
               />
 
               <Button
-                className="m-5 border-default-300 text-white"
+                className="m-5 border-default-300 text-white justify-center left-[210px]"
                 color="success"
                 size="md"
                 type="submit"

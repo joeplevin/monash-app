@@ -47,17 +47,10 @@ const CreateJobFormSchema = z.object({
     .string()
     .min(10, "Job location is too short")
     .max(200, "Job location is too long"),
-
-  cvSkills: z
-    .string()
-    .min(10, "Skills is too short")
-    .max(200, "Skills is too long"),
 });
 
-const CreateJobCard = () => {
-  const session = getSession();
-  const charity = session?.user?.charity;
-  console.log("charity", charity);
+const CreateJobCard = (charity) => {
+  console.log("Create job", charity);
 
   const {
     register,
@@ -72,35 +65,15 @@ const CreateJobCard = () => {
   const router = useRouter();
 
   const saveJob = async (data) => {
-    const { charity, ...job } = data;
-    console.log("charity", charity);
+    const { charityId, ...job } = data;
+    console.log("Job", charity);
     try {
-      const res = await createJob(job);
+      const res = await createJob(job, charity);
       toast.success("Job created successfully");
       router.push("/charity");
     } catch (error) {
       toast.error("Error creating job");
-    }
-  };
-
-  const createJob = async (jobData) => {
-    console.log(jobData);
-    try {
-      const response = await fetch("../api/createJobPath", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(jobData),
-      });
-
-      if (response.ok) {
-        console.log("Job successfully added!");
-      } else {
-        console.error("Error adding Job");
-      }
-    } catch (error) {
-      console.error("Error adding job", error);
+      console.log("Error creating job", error);
     }
   };
 
@@ -131,45 +104,38 @@ const CreateJobCard = () => {
           <CardBody className="w-[850px] h-90 left-[100px]">
             <form onSubmit={handleSubmit(saveJob)}>
               <Input
-                errorMessage={errors.jobTitle?.message}
+                errorMessage={errors.title?.message}
                 className=" flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
                 placeholder="Enter your job title here"
                 label="Job Title"
-                {...register("jobTitle")}
+                {...register("title")}
               />
 
               <Input
-                errorMessage={errors.jobDescription?.message}
+                errorMessage={errors.description?.message}
                 className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
                 placeholder="Enter your job description here"
                 label="Job Description"
-                {...register("jobDescription")}
+                {...register("description")}
               />
 
               <Input
+                errorMessage={errors.location?.message}
                 className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
                 placeholder="Enter your job location here"
                 label="Job Location"
-                {...register("jobLocation")}
+                {...register("location")}
               />
-
-              <Input
-                className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
-                placeholder="Enter your required skills here"
-                label="Skills"
-                {...register("jobSkills")}
-              />
+              <Button
+                className="m-5 border-default-300 text-white"
+                color="success"
+                size="md"
+                type="submit"
+              >
+                Add Job
+              </Button>
             </form>
           </CardBody>
-
-          <Button
-            className="m-5 border-default-300 text-white"
-            color="success"
-            size="md"
-            type="submit"
-          >
-            Add Job
-          </Button>
         </Card>
       </div>
     </>

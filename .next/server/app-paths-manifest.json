@@ -1,8 +1,7 @@
 {
   "/charity/page": "app/charity/page.js",
-  "/charity/createjob/page": "app/charity/createjob/page.js",
+  "/charity/editjob/[id]/page": "app/charity/editjob/[id]/page.js",
   "/charity/editcharityprofile/page": "app/charity/editcharityprofile/page.js",
-  "/charity/charityprofilejobs/page": "app/charity/charityprofilejobs/page.js",
-  "/charity/editjob/page": "app/charity/editjob/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/charity/createjob/page": "app/charity/createjob/page.js",
+  "/charity/jobapplications/page": "app/charity/jobapplications/page.js"
 }
