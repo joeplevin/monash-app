@@ -20,7 +20,11 @@ const PDFView = (url) => {
     <>
       <div className="justify-center items-center">
         <Document file={url.cvUrl} onLoadSuccess={onDocumentLoadSuccess}>
-          <Page pageNumber={pageNumber} renderTextLayer={false} />
+          <Page
+            pageNumber={pageNumber}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
         </Document>
       </div>
       <div>
