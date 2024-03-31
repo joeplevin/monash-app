@@ -1,6 +1,5 @@
 {
   "/not-found": "app/not-found.js",
-  "/admin/EditAdminProfile/page": "app/admin/EditAdminProfile/page.js",
   "/admin/create-user/page": "app/admin/create-user/page.js",
   "/admin/page": "app/admin/page.js",
   "/admin/create-charity/page": "app/admin/create-charity/page.js",
