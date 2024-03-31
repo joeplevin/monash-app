@@ -20,9 +20,9 @@ import PasswordStrength from "./PasswordStrength";
 import { registerUser } from "@/lib/actions/authActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { getCharities } from "@/lib/actions/charityActions2";
-import { createStudent } from "@/lib/actions/studentActions2";
-import { updateCharityUser } from "@/lib/actions/charityActions2";
+import { getCharities } from "@/lib/actions/charityActions";
+import { createStudent } from "@/lib/actions/studentActions";
+import { updateCharityUser } from "@/lib/actions/charityActions";
 
 const SignupFormSchema = z
   .object({
