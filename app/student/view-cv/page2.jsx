@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getStudent } from "@/lib/actions/studentActions";
+import { getStudent } from "@/lib/actions/studentActions2";
 import PDFView from "@/app/components/student/PDFView";
 import { runPythonScript } from "@/index.js";
 import { Card, CardBody, CardHeader, Button } from "@nextui-org/react";
