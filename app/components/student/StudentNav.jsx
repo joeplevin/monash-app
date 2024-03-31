@@ -25,6 +25,13 @@ const StudentNav = () => {
       </NavbarContent>
       <NavbarContent justify="center">
         <NavbarItem>
+          <Link color="foreground" href="/student/matching">
+            Cv Matcher
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="center">
+        <NavbarItem>
           <Link color="foreground" href="/student/jobs">
             Jobs
           </Link>
