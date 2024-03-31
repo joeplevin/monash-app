@@ -37,13 +37,6 @@ const StudentNav = () => {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="/student/charities">
-            Charities
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
     </Navbar>
   );
 };

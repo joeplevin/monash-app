@@ -9,7 +9,10 @@ import {
   Pagination,
   Input,
 } from "@nextui-org/react";
-import { columns, renderCell } from "@/app/components/student/AllJobsColumns";
+import {
+  columns,
+  renderCell,
+} from "@/app/components/student/jobs/StudentJobsColumns";
 import { useCallback, useMemo } from "react";
 import { useState } from "react";
 import { SearchIcon } from "@/app/components/icons";

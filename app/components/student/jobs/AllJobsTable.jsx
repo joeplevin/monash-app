@@ -12,7 +12,7 @@ import {
 import {
   columns,
   renderCell,
-} from "@/app/components/student/StudentJobsColumns";
+} from "@/app/components/student/jobs/AllJobsColumns";
 import { useCallback, useMemo } from "react";
 import { useState } from "react";
 import { SearchIcon } from "@/app/components/icons";
@@ -52,7 +52,7 @@ export default function StudentJobsTable({ jobs }) {
         <div className="flex items-end just gap-3">
           <Input
             isClearable
-            placeholder="Search Your Jobs"
+            placeholder="Search for Jobs"
             value={filter}
             className="w-full sm:max-w-[44%]"
             startContent={<SearchIcon />}
@@ -90,7 +90,7 @@ export default function StudentJobsTable({ jobs }) {
 
   return (
     <Table
-      aria-label="Student Jobs Table"
+      aria-label="All Jobs Table"
       className="col-span-2"
       topContent={topContent}
       topContentPlacement="outside"
@@ -121,10 +121,7 @@ export default function StudentJobsTable({ jobs }) {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody
-        items={sortedItems}
-        emptyContent={"You haven't got any jobs, go get one!"}
-      >
+      <TableBody items={sortedItems} emptyContent={"No jobs to display."}>
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
