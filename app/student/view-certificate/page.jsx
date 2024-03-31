@@ -5,10 +5,12 @@ import PDFView from "@/app/components/student/PDFView";
 import { runPythonScript } from "@/index.js";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
-const ViewCV = async () => {
+const ViewCertificate = async () => {
   const session = await getServerSession(authOptions);
   const user = session?.user;
   const student = await getStudent(user.id);
+  const certificates = student.Certificates;
+  console.log("got cert", certificates[0].certificateUrl);
   const result = await runPythonScript(student.Cv?.cvUrl);
   const fileName = result[1].toString();
   const resumeSkills = result[0][fileName];
@@ -17,22 +19,10 @@ const ViewCV = async () => {
   return (
     <>
       <div className="justify-center">
-        <PDFView cvUrl={student.Cv?.cvUrl} />
+        <PDFView cvUrl={certificates[0].certificateUrl} />
       </div>
-      <Card>
-        <CardHeader className="justify-center">Your Skills</CardHeader>
-        <CardBody>
-          <ul className="columns-3">
-            {resumeSkills.length > 0 ? (
-              resumeSkills.map((skill, index) => <li key={index}>{skill}</li>)
-            ) : (
-              <li></li>
-            )}
-          </ul>
-        </CardBody>
-      </Card>
     </>
   );
 };
 
-export default ViewCV;
+export default ViewCertificate;

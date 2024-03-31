@@ -67,12 +67,12 @@ model Student {
 
 model Charity {
   id           String        @id @unique @default(cuid())
-  name         String        @default("")
-  description  String        @default("")
-  location     String        @default("")
   userId       String        @unique
+  name         String        @default("Charity Name")
+  description  String        @default("Charity Description")
+  location     String        @default("Charity Location")
   user         User[]
-  jobs         Job[]
+  Jobs         Job[]
   Certificates Certificate[]
 }
 
@@ -87,23 +87,14 @@ model Job {
   title       String
   description String
   location    String
-  completed   Boolean?
+  completed   Boolean?       @default(false)
   progress    String?
   charityId   String
-  charity     Charity        @relation(fields: [charityId], references: [id])
+  charity     Charity        @relation(fields: [charityId], references: [userId])
   studentId   String?
   student     Student?       @relation(fields: [studentId], references: [userId])
   cvSkills    CvSkills[]
   applicants  Applications[]
-}
-
-model Applications {
-  id                String  @id @unique @default(cuid())
-  jobId             String
-  job               Job     @relation(fields: [jobId], references: [id])
-  studentId         String
-  student           Student @relation(fields: [studentId], references: [userId])
-  applicationStatus String
 }
 
 model Certificate {
@@ -127,12 +118,21 @@ model Cv {
 }
 
 model CvSkills {
-  id    String @id @unique @default(cuid())
+  id    String @id @default(cuid())
   skill String
   cvId  String
   cv    Cv[]
   jobId String
   job   Job[]
+}
+
+model Applications {
+  id                String  @id @unique @default(cuid())
+  jobId             String
+  job               Job     @relation(fields: [jobId], references: [id])
+  studentId         String
+  student           Student @relation(fields: [studentId], references: [userId])
+  applicationStatus String
 }
 
 model VerificationToken {
