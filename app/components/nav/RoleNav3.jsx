@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import StudentNav from "../student/StudentNav";
+import StudentNav from "../student/StudentNav2";
 
 const RoleNav = () => {
   const { data: session } = useSession();

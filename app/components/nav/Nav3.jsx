@@ -14,7 +14,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import SigninButton from "./SigninButton";
 import { useState } from "react";
-import RoleNav from "./RoleNav";
+import RoleNav from "./RoleNav3";
 
 const Nav = () => {
   // Render normal navigation bar, then role navigation bar

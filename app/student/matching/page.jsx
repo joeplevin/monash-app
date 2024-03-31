@@ -4,14 +4,14 @@ import {
   getJobsBySkills,
   getJobs,
   getJob,
-} from "@/lib/actions/charityActions";
+} from "@/lib/actions/charityActions2";
 import MatchingSkills from "@/app/components/student/MatchingSkills";
 import MatchingJobs from "@/app/components/student/MatchingJobs";
 import { all } from "axios";
 import { match } from "assert";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getStudent } from "@/lib/actions/studentActions";
+import { getStudent } from "@/lib/actions/studentActions2";
 import { runPythonScript } from "@/index.js";
 import PDFView from "@/app/components/student/PDFView";
 import { Button } from "@nextui-org/react";
