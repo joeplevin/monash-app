@@ -1,7 +1,7 @@
 import React from "react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getCharitybyUser } from "@/lib/actions/charityActions";
+import { getCharitybyUser } from "@/lib/actions/charityActions1";
 import EditCharityProfileForm from "@/app/components/EditCharityProfileForm";
 
 const EditProfile = async () => {

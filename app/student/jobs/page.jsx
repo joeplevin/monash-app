@@ -3,7 +3,7 @@ import {
   getStudentApplications,
   getStudentApplicationsForJob,
 } from "@/lib/actions/applicationActions";
-import { getStudent } from "@/lib/actions/studentActions";
+import { getStudent } from "@/lib/actions/studentActions1";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import {
