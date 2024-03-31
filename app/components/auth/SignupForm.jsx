@@ -60,9 +60,9 @@ const SignupFormSchema = z
   });
 
 const SignupForm = (params) => {
-  console.log("SignupForm", params.charities);
+
   const formCharities = params.charities || [];
-  console.log("form charities", params.charities);
+
   const {
     register,
     handleSubmit,
@@ -73,7 +73,7 @@ const SignupForm = (params) => {
     resolver: zodResolver(SignupFormSchema),
   });
   const router = useRouter();
-  console.log("form charities", formCharities);
+
   const [passStrength, setPassStrength] = useState(0);
   const [isVisiblePass, setIsVisiblePass] = useState(false);
   useEffect(() => {

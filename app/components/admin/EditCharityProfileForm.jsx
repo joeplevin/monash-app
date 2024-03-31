@@ -49,7 +49,7 @@ const CharityProfileSchema = z.object({
 });
 
 const EditCharityProfileForm = ({charity}) => {
-  console.log("charity", charity);
+ 
   const {
     register,
     handleSubmit,
@@ -66,16 +66,16 @@ const EditCharityProfileForm = ({charity}) => {
     data.id = charity.id;
     
 
-    console.log("profile edit data", data);
+   
     const { ...user } = data;
-    console.log(" ", data);
+   
     try {
       const res = await updateCharityDetails(data);
       toast.success("Saved successfully");
       router.push("/admin/create-charity");
     } catch (error) {
       toast.error("Error saving charity profile");
-      console.log("profile error", error);
+     
     }
   };
   return (

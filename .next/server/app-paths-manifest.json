@@ -1,8 +1,10 @@
 {
   "/not-found": "app/not-found.js",
-  "/admin/create-user/page": "app/admin/create-user/page.js",
   "/admin/page": "app/admin/page.js",
-  "/admin/create-charity/page": "app/admin/create-charity/page.js",
-  "/admin/add-new-charity/page": "app/admin/add-new-charity/page.js",
-  "/admin/delete-charity/[id]/page": "app/admin/delete-charity/[id]/page.js"
+  "/admin/delete-charity/[id]/page": "app/admin/delete-charity/[id]/page.js",
+  "/admin/display-students/page": "app/admin/display-students/page.js",
+  "/auth/signin/page": "app/auth/signin/page.js",
+  "/admin/create-user/page": "app/admin/create-user/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/admin/create-charity/page": "app/admin/create-charity/page.js"
 }

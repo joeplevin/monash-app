@@ -8,14 +8,7 @@ const EditProfile = async () => {
   const session = await getServerSession(authOptions);
   let user = session?.user;
   let charity = await getCharity(user.id);
-  console.log(
-    "charity Edit Profile",
-    charity,
-    "user",
-    user,
-    "session",
-    session
-  );
+ 
 
   return (
     <div>

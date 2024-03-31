@@ -51,15 +51,17 @@ const AdminHome = () => {
       });
 
       if (response.ok) {
+    
+        
         setAdminUsers(prevUsers =>
           prevUsers.filter(user => user.id !== userId)
         );
-        console.log('User deleted');
+        
       } else {
-        console.error('Error deleting user');
+        
       }
     } catch (error) {
-      console.error('Error deleting user:', error);
+    
     }
   };
   

@@ -1,16 +1,12 @@
-// Import PrismaClient
-import { PrismaClient } from '@prisma/client';
-
-// Instantiate PrismaClient
-const prisma = new PrismaClient();
-
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {
     const { id } = req.query; // User ID from URL query parameters
 
     try {
       await prisma.user.delete({
-        where: { id },
+        where: {
+          id: id // Use user's id as the unique identifier
+        },
       });
 
       res.status(200).json({ message: 'Admin user deleted successfully' });

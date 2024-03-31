@@ -2,7 +2,7 @@
 import React from "react";
 
 const EditCharityProfileForm = (charity) => {
-  console.log("charity", charity);
+ 
   return (
     <div>
       <h1>Charity ID: {charity.charity.id}</h1>
