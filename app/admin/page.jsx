@@ -31,6 +31,10 @@ const AdminHome = () => {
     window.location.href = '../admin/create-charity';
   };
 
+  const navigateToStudents = () => {
+    window.location.href = '../admin/display-students';
+  };
+
   const navigateToEditUser = (userId, userData) => {
     if (!userData) {
       console.error('User data not available');
@@ -58,14 +62,20 @@ const AdminHome = () => {
       console.error('Error deleting user:', error);
     }
   };
+  
 
   return (
     <div className="container mx-auto py-8">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-semibold">Admin Users</h1>
-        <button onClick={navigateToAddCharity} className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">
-          Browse Charities
-        </button>
+        <div>
+          <button onClick={navigateToAddCharity} className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md mr-2">
+            Browse Charities
+          </button>
+          <button onClick={navigateToStudents} className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md">
+            Browse Students
+          </button>
+        </div>
       </div>
       
       {adminUsers.length > 0 ? (
@@ -91,9 +101,9 @@ const AdminHome = () => {
                     <button onClick={() => navigateToEditUser(user.id, user)} className="bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded-md mr-2">
                       Edit
                     </button>
-                    <button onClick={() => deleteUser(user.id)} className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-md">
-                      Delete
-                    </button>
+                    <button onClick={() => deleteUser(user.id)} className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-md">
+                    Delete
+                  </button>
                   </td>
                 </tr>
               ))}

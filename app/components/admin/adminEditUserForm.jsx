@@ -51,7 +51,7 @@ const EditAdminProfile = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-semibold mb-4">Edit Admin Profile</h1>
+      <h1 className="text-3xl font-semibold mb-4">Edit Profile</h1>
       
       <div className="grid grid-cols-1 gap-4">
         <input type="text" name="firstName" value={userData.firstName} onChange={handleChange} placeholder="First Name" className="border p-2" />
