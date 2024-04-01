@@ -3,7 +3,7 @@ import {
   getStudentApplications,
   getStudentApplicationsForJob,
 } from "@/lib/actions/applicationActions";
-import { getStudent } from "@/lib/actions/studentActions1";
+import { getStudent } from "@/lib/actions/studentActions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import {
@@ -49,6 +49,7 @@ const StudentJobs = async () => {
         allJobs.splice(i, 1);
       }
     }
+    // Add status to allJobs
     for (let k = 0; k < studentApplications.length; k++) {
       if (allJobs[i].id === studentApplications[k].jobId) {
         allJobs[i].status = studentApplications[k].applicationStatus;

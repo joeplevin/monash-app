@@ -29,7 +29,7 @@ const StudentDetails = ({ student }) => {
           <h1>CV:</h1>
           <h1>{student?.Cv?.cvUrl}</h1>
         </div>
-        <div>
+        {/* <div>
           <UploadCV user={user} />
           {student?.Cv ? (
             <Button as={Link} href="/student/view-cv">
@@ -38,11 +38,11 @@ const StudentDetails = ({ student }) => {
           ) : (
             <p> No Cv uploaded</p>
           )}
-        </div>
+        </div> */}
         <div className="flex justify-center">
           <PDFView cvUrl={student.Cv?.cvUrl} />
           <div>
-            <Link href={student.Cv?.cvUrl}>CV</Link>
+            <Link href={`${student.Cv?.cvUrl}`}>CV</Link>
           </div>
         </div>
       </CardBody>

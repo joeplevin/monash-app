@@ -1,7 +1,7 @@
 import EditStudentProfileForm from "@/app/components/student/EditStudentProfileForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { getStudent } from "@/lib/actions/studentActions1";
+import { getStudent } from "@/lib/actions/studentActions";
 
 const StudentEditProfile = async () => {
   const session = await getServerSession(authOptions);

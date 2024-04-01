@@ -16,21 +16,31 @@ import { runPythonScript } from "@/index.js";
 import PDFView from "@/app/components/student/PDFView";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import { addCvSkill } from "@/lib/actions/studentActions";
 
 const Matching = async () => {
+  // Get student session
   const session = await getServerSession(authOptions);
-  const user = session?.user;
-  const student = await getStudent(user.id);
-  const cvSkills = await getCvSkillList();
+  const user = session?.user?.id;
+  const student = await getStudent(user);
+
+  //Initialise variables
   let matchedJobIds = [];
   const matchedJobsWithSkills = {};
   let matchedSkills = [];
   let finalJobs = [];
-  // console.log("cvSkills", cvSkills);
+  // Check if student has a CV
   if (student.Cv?.cvUrl) {
     const result = await runPythonScript(student.Cv?.cvUrl);
     const fileName = result[1].toString();
     const resumeSkills = result[0][fileName];
+
+    let cvSkills = await getCvSkillList();
+    console.log("cvSkills before lower", cvSkills);
+    for (let i = 0; i < cvSkills.length; i++) {
+      cvSkills[i].skill = cvSkills[i].skill.toLowerCase();
+    }
+    console.log("cvSkills", cvSkills);
 
     const jobs = await getJobs();
     // console.log("all jobs with skills", jobs);
@@ -39,19 +49,20 @@ const Matching = async () => {
     const lowercaseResumeSkills = resumeSkills.map((skill) =>
       skill.toLowerCase()
     );
+    console.log("lowercaseResumeSkills", lowercaseResumeSkills);
 
+    // Add all job skills to an object with job id as key, lowercase for matching
     for (const job of jobs) {
       if (job.cvSkills) {
         allJobSkills[job.id] = [];
         for (const skill of job.cvSkills) {
+          skill.skill = skill.skill.toLowerCase();
           allJobSkills[job.id].push(skill.skill);
         }
       }
     }
     const matchedJobs = [];
-    // console.log("allJobSkills before match", allJobSkills);
-    // job = jobID: [skill, skill, skill]
-
+    //find matching skills between resume and job skills
     for (let job in allJobSkills) {
       matchedJobsWithSkills[job] = [];
       for (let skill of allJobSkills[job]) {
@@ -64,79 +75,31 @@ const Matching = async () => {
         }
       }
     }
+    // remove duplicates
     matchedJobIds = Array.from(new Set(matchedJobIds));
+    // get job details for matched job ids
     for (let i = 0; i < matchedJobIds.length; i++) {
       const finalJob = await getJob(matchedJobIds[i]);
       console.log("finalJob", finalJob);
       finalJobs.push(finalJob);
     }
+    // remove duplicates
     matchedSkills = Array.from(new Set(matchedSkills));
-    // This would be based on matchedSkills and some form of lookup or logic
 
-    console.log("matchedSkills", matchedSkills);
+    // store matched cv skills to all db skills in db for future reference
+    // get Skills list from the database & convert to lowercase
 
-    // Assuming a function or logic to map matchedSkills to matchedJobs is needed but not provided
-    // const matchedJobs = []; // This would be based on matchedSkills and some form of lookup or logic
-    // console.log("allJobSkills after match", matchedJobsWithSkills);
-
-    // const matchedSkills = lowercaseResumeSkills.filter((resumeSkill) =>
-    //   cvSkills.includes(resumeSkill)
-    // );
-
-    // Assuming a function or logic to map matchedSkills to matchedJobs is needed but not provided
-    // const matchedJobs = []; // This would be based on matchedSkills and some form of lookup or logic
-
-    // console.log("matchedSkills", matchedSkills);
-
-    // Convert both lists to lowercase for case-insensitive comparison
-
-    // const MatchingSkills = () => {
-    //   const findMatchingSkills = (cvSkills, resumeSkills) => {
-    //     const matchingSkills = [];
-
-    //     for (let i = 0; i < resumeSkills.length; i++) {
-    //       const resumeSkill = resumeSkills[i].toLowerCase();
-    //       const matchingSkill = cvSkills.find(
-    //         (cvSkill) => cvSkill.toLowerCase() === resumeSkill
-    //       );
-    //       if (matchingSkill) {
-    //         matchingSkills.push(matchingSkill);
-    //       }
-    //     }
-
-    //     return matchingSkills;
-    //   };
-
-    //   const matchingSkills = resumeSkills.filter((skill) =>
-    //     cvSkills.includes(skill)
-    //   );
-    //   console.log("matchingSkills", matchingSkills);
-    // };
-
-    // Find matched skills between CV skills and resume skills
-    // const matchedSkills = lowercaseResumeSkills.filter((resumeSkill) =>
-    //   lowercaseCvSkills.includes(resumeSkill)
-    // );
-    // console.log("matchedSkills", matchedSkills);
-    // try {
-    //   // Retrieve jobs based on matched skills
-    //   const jobs = await getJobsBySkills(matchedSkills);
-
-    //   // Filter jobs to check if they require matched skills
-    //   const matchedJobs = await Promise.all(
-    //     jobs.map(async (job) => {
-    //       const cvSkillsForJob = await getCvSkills(job.id);
-    //       const jobContainsMatchedSkill = cvSkillsForJob.some((cvSkill) =>
-    //         matchedSkills.includes(cvSkill.skill.toLowerCase())
-    //       );
-    //       return jobContainsMatchedSkill ? job : null;
-    //     })
-    //   );
-
-    // Filter out null values from matchedJobs array
-    // const finalJobs = matchedJobs.filter((job) => job !== null);
-
-    // console.log("matchedJobs", finalJobs);
+    for (let skill of lowercaseResumeSkills) {
+      for (let dbSkill of cvSkills) {
+        if (skill == dbSkill.skill) {
+          try {
+            await addCvSkill(student.Cv.id, dbSkill);
+          } catch (error) {
+            console.error("Error creating cv skill", error);
+          }
+        }
+      }
+    }
   }
   return (
     <>

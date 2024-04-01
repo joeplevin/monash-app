@@ -3,7 +3,7 @@ import React from "react";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { Input, Button } from "@nextui-org/react";
 import UploadCV from "@/app/components/student/uploadCV";
-import { getStudent } from "@/lib/actions/studentActions1";
+import { getStudent } from "@/lib/actions/studentActions";
 import { Document } from "@react-pdf/renderer";
 import { DocumentIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";

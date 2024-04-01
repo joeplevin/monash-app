@@ -20,7 +20,7 @@ import PasswordStrength from "../auth/PasswordStrength";
 import { updateUserDetails } from "@/lib/actions/userActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { getStudent } from "@/lib/actions/studentActions1";
+import { getStudent } from "@/lib/actions/studentActions";
 import UploadCV from "./uploadCV";
 // find a way to import cvs, jobs & certificates
 // display them in the form
