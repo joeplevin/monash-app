@@ -25,7 +25,6 @@ const CharityHomePageDetails = (charity) => {
             <br></br>
             <p className="text-md">{charity.charity.description}</p>
             <br></br>
-            <br></br>
             <p className="text-md">{charity.charity.location}</p>
           </CardBody>
         </div>

@@ -9,6 +9,8 @@ import {
   Textarea,
   Link,
   Input,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -47,10 +49,13 @@ const CreateJobFormSchema = z.object({
     .string()
     .min(10, "Job location is too short")
     .max(200, "Job location is too long"),
+
+  skills: z.array(z.string()),
 });
 
-const CreateJobCard = (charity) => {
-  console.log("Create job", charity);
+const CreateJobCard = (params) => {
+  console.log("Create job", params.charity);
+  console.log("Skills", params.skills);
 
   const {
     register,
@@ -65,10 +70,11 @@ const CreateJobCard = (charity) => {
   const router = useRouter();
 
   const saveJob = async (data) => {
+    console.log("Data", data);
     const { charityId, ...job } = data;
-    console.log("Job", charity);
+    console.log("Job", params.charity);
     try {
-      const res = await createJob(job, charity);
+      const res = await createJob(job, params.charity);
       toast.success("Job created successfully");
       router.push("/charity");
     } catch (error) {
@@ -110,7 +116,6 @@ const CreateJobCard = (charity) => {
                 label="Job Title"
                 {...register("title")}
               />
-
               <Input
                 errorMessage={errors.description?.message}
                 className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
@@ -118,7 +123,6 @@ const CreateJobCard = (charity) => {
                 label="Job Description"
                 {...register("description")}
               />
-
               <Input
                 errorMessage={errors.location?.message}
                 className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
@@ -126,6 +130,21 @@ const CreateJobCard = (charity) => {
                 label="Job Location"
                 {...register("location")}
               />
+
+              <Select
+                label="Choose Required Skills"
+                placeholder="Select skills"
+                selectionMode="multiple"
+                className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
+                {...register("cvSkills")}
+              >
+                {params.skills.map((skill, index) => (
+                  <SelectItem key={index} value={skill.id}>
+                    {skill.skill}
+                  </SelectItem>
+                ))}
+              </Select>
+
               <Button
                 className="m-5 border-default-300 text-white"
                 color="success"
