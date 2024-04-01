@@ -12,7 +12,7 @@ export const columns = [
 
 export const renderCell = (job, columnKey) => {
   const cellValue = getKeyValue(job, columnKey);
-  console.log("alljobs table applications", job.status);
+  console.log("alljobs table skills", job.cvSkills);
   switch (columnKey) {
     case "title":
       return <Link href={`/student/jobs/${job.id}`}>{cellValue}</Link>;
@@ -24,26 +24,26 @@ export const renderCell = (job, columnKey) => {
           as={Link}
           href={`/student/applications/${job.id}`}
           isDisabled
-          className="bg-orange-400"
+          className="bg-orange-400 max-h-6"
         >
-          In Progress
+          <p className="text-xs">In Progress</p>
         </Button>
       ) : job.status == "rejected" ? (
         <Button
           as={Link}
           href={`/student/applications/${job.id}`}
           isDisabled
-          className="bg-red-400"
+          className="bg-red-400 max-h-6"
         >
-          Rejected
+          <p className="text-xs">Rejected</p>
         </Button>
       ) : (
         <Button
           as={Link}
           href={`/student/applications/new-application/${job.id}`}
-          className="bg-green-400"
+          className="bg-green-400 max-h-6"
         >
-          Apply
+          <p className="text-xs">Apply</p>
         </Button>
       );
     case "completed":
@@ -54,6 +54,12 @@ export const renderCell = (job, columnKey) => {
       ) : (
         <Checkbox isDisabled>Incomplete</Checkbox>
       );
+    case "skills":
+      return job.cvSkills.map((skill) => (
+        <span key={skill.id} className="text-xs">
+          {skill.skill}
+        </span>
+      ));
     case "actions":
       return (
         <div className="relative flex items-center gap-4">

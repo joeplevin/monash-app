@@ -10,11 +10,9 @@ const ViewCertificate = async () => {
   const user = session?.user;
   const student = await getStudent(user.id);
   const certificates = student.Certificates;
-  console.log("got cert", certificates[0].certificateUrl);
   const result = await runPythonScript(student.Cv?.cvUrl);
   const fileName = result[1].toString();
   const resumeSkills = result[0][fileName];
-  console.log(resumeSkills);
 
   return (
     <>

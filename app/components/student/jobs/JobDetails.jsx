@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 
 const JobDetails = ({ job }) => {
-  console.log("JobDetails", job);
   return (
     <>
       <Card className="max-w-fit justify-center items-center text-center">

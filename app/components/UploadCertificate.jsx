@@ -2,11 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import { getSignedURL } from "@/lib/actions/fileActions";
+import { getSignedURLForCertificates } from "@/lib/actions/fileActions";
 import { DocumentArrowUpIcon } from "@heroicons/react/20/solid";
 import { Button, Input } from "@nextui-org/react";
 
-const UploadCV = (user) => {
+const UploadCertificate = (params) => {
   const [file, setFile] = useState(undefined);
   const [fileUrl, setFileUrl] = useState("");
   const [fileName, setFileName] = useState("");
@@ -34,11 +34,13 @@ const UploadCV = (user) => {
       if (file) {
         setStatusMessage("uploading...");
         const checksum = await computeSHA256(file);
-        const signedURLResult = await getSignedURL(
+        const signedURLResult = await getSignedURLForCertificates(
           file.type,
           file.size,
           checksum,
-          fileName
+          fileName,
+          params.studentId,
+          params.charityId
         );
 
         if (signedURLResult.failure !== undefined) {
@@ -80,7 +82,7 @@ const UploadCV = (user) => {
   };
   return (
     <>
-      <h1 className="text-center m-2">Upload CV</h1>
+      <h1 className="text-center m-2">Upload Certificate</h1>
       <form
         className={`grid ${
           file ? "grid-cols-5" : "grid-cols-3"
@@ -134,7 +136,7 @@ const UploadCV = (user) => {
             accept="pdf"
             onChange={handleChange}
           />
-          <span className="">Select CV</span>
+          <span className="">Select Certificate</span>
           <DocumentArrowUpIcon className="w-6" />
         </label>
         <Button type="submit" className="">
@@ -144,4 +146,4 @@ const UploadCV = (user) => {
     </>
   );
 };
-export default UploadCV;
+export default UploadCertificate;

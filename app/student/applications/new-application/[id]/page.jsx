@@ -2,6 +2,7 @@ import { getServerSession } from "@clerk/clerk-sdk-node";
 import { getStudent } from "@/app/queries/students";
 import { getJob } from "@/app/queries/jobs";
 import { authOptions } from "@/lib/authOptions";
+import ApplicationForm from "@/app/components/student/jobs/ApplicationForm";
 
 const NewApplication = async ({ params }) => {
   const session = await getServerSession(authOptions);

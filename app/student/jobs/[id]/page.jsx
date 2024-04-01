@@ -1,5 +1,5 @@
 import { getJob } from "@/lib/actions/jobActions";
-import JobDetails from "@/app/components/student/JobDetails";
+import JobDetails from "@/app/components/student/jobs/JobDetails";
 
 import React from "react";
 

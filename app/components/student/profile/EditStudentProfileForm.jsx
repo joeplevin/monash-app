@@ -16,12 +16,12 @@ import { z } from "zod";
 import validator from "validator";
 import { useEffect } from "react";
 import { passwordStrength } from "check-password-strength";
-import PasswordStrength from "../auth/PasswordStrength";
+import PasswordStrength from "../../auth/PasswordStrength";
 import { updateUserDetails } from "@/lib/actions/userActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { getStudent } from "@/lib/actions/studentActions";
-import UploadCV from "./uploadCV";
+import UploadCV from "../uploadCV";
 // find a way to import cvs, jobs & certificates
 // display them in the form
 // delete/add new in the form
@@ -49,7 +49,6 @@ const StudentProfileSchema = z.object({
 });
 
 const EditStudentProfileForm = (student) => {
-  console.log("student", student);
   const {
     register,
     handleSubmit,
@@ -67,9 +66,7 @@ const EditStudentProfileForm = (student) => {
     data.email = student.student.user.email;
     // data.password = student.student.user.password;
 
-    console.log("profile edit data", data);
     const { ...user } = data;
-    console.log("this is the data", data);
     try {
       const res = await updateUserDetails(user);
       toast.success("Saved successfully");

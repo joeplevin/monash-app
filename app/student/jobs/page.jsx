@@ -20,7 +20,6 @@ import {
   Button,
 } from "@nextui-org/react";
 import Link from "next/link";
-import JobsList from "@/app/components/student/JobsList";
 import { all } from "axios";
 import StudentJobsTable from "@/app/components/student/jobs/StudentJobsTable";
 import AllJobsTable from "@/app/components/student/jobs/AllJobsTable";
@@ -32,14 +31,10 @@ const StudentJobs = async () => {
   const studentJobApplications = await getStudentApplicationsForJob(
     student.userId
   );
-  console.log("got apps for job", studentJobApplications);
 
   const studentApplications = await getStudentApplications(student.userId);
 
-  console.log("got apps", studentApplications);
-
   const certificates = student.Certificates;
-  // console.log("got cert", certificates[0].certificateUrl);
   const studentJobs = await getStudentJobs(student.userId);
 
   // Remove jobs that student has already applied for

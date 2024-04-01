@@ -36,20 +36,16 @@ const Matching = async () => {
     const resumeSkills = result[0][fileName];
 
     let cvSkills = await getCvSkillList();
-    console.log("cvSkills before lower", cvSkills);
     for (let i = 0; i < cvSkills.length; i++) {
       cvSkills[i].skill = cvSkills[i].skill.toLowerCase();
     }
-    console.log("cvSkills", cvSkills);
 
     const jobs = await getJobs();
-    // console.log("all jobs with skills", jobs);
     const allJobSkills = {};
     // put job id, skill in the object {jobId: [skill,skill,skill]} ?
     const lowercaseResumeSkills = resumeSkills.map((skill) =>
       skill.toLowerCase()
     );
-    console.log("lowercaseResumeSkills", lowercaseResumeSkills);
 
     // Add all job skills to an object with job id as key, lowercase for matching
     for (const job of jobs) {
@@ -80,7 +76,6 @@ const Matching = async () => {
     // get job details for matched job ids
     for (let i = 0; i < matchedJobIds.length; i++) {
       const finalJob = await getJob(matchedJobIds[i]);
-      console.log("finalJob", finalJob);
       finalJobs.push(finalJob);
     }
     // remove duplicates

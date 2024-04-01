@@ -1,5 +1,5 @@
 "use client";
-import { pdfjs, Document, Page } from "react-pdf";
+import { pdfjs, Document, Page, Thumbnail } from "react-pdf";
 import { useState } from "react";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -7,7 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-const PDFView = (url) => {
+const ThumbnailView = (url) => {
   const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -17,13 +17,13 @@ const PDFView = (url) => {
 
   return (
     <>
-      <div className="justify-center items-center">
-        <Document file={url.cvUrl} onLoadSuccess={onDocumentLoadSuccess}>
-          <Page
-            pageNumber={pageNumber}
-            renderAnnotationLayer={false}
-            renderTextLayer={false}
-          />
+      <div className="justify-center items-center max-h-9">
+        <Document
+          file={url.cvUrl}
+          onLoadSuccess={onDocumentLoadSuccess}
+          className={"justify-center items-center max-h-9"}
+        >
+          <Thumbnail pageNumber={pageNumber} />
         </Document>
       </div>
       <div>
@@ -36,4 +36,4 @@ const PDFView = (url) => {
   );
 };
 
-export default PDFView;
+export default ThumbnailView;
