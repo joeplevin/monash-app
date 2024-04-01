@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 const StudentNav = () => {
   return (
-    <Navbar isBordered maxWidth="full" className="pr-44 pl-44 ">
+    <Navbar isBordered maxWidth="full">
       <NavbarContent justify="center">
         <NavbarItem>
           <Link color="foreground" href="/student">
@@ -31,6 +31,13 @@ const StudentNav = () => {
         <NavbarItem>
           <Link color="foreground" href="/student/jobs">
             Jobs
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="center">
+        <NavbarItem>
+          <Link color="foreground" href="/student/charities">
+            Charities
           </Link>
         </NavbarItem>
       </NavbarContent>
