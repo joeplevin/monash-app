@@ -20,7 +20,7 @@ const CreateCharity = () => {
 
   const validateForm = () => {
     // Check if all fields are filled
-    console.log(charity);
+  
     for (const key in charity) {
       if (!charity[key]) {
         setError(`${key.charAt(0).toUpperCase() + key.slice(1)} is required`);
@@ -33,14 +33,11 @@ const CreateCharity = () => {
 
   const createCharity = async () => {
     if (!validateForm()) {
-      console.log("getting stopped at validation")
+  
       return; // Stop execution if form is not valid
     }
       try {
-        // Validate charity data
-      console.log("getting to validation")
-
-    
+      
         const response = await fetch('../pages/api/createCharityRoute', {
           method: 'POST',
           headers: {
@@ -51,7 +48,7 @@ const CreateCharity = () => {
     
         if (response.ok) {
           const data = await response.json();
-          console.log('Charity created:', data);
+       
           window.location.href = '/create-charity';
         } else {
           console.error('Error creating charity');

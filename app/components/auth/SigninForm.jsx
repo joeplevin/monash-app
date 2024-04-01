@@ -19,6 +19,7 @@ const FormSchema = z.object({
 });
 
 const SigninForm = (params) => {
+  console.log("params", params);
   const router = useRouter();
   const session = useSession();
   const [visiblePass, setVisiblePass] = useState(false);

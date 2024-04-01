@@ -39,7 +39,7 @@ const EditAdminProfile = () => {
       });
 
       if (response.ok) {
-        console.log('User updated successfully');
+        
         window.location.href = '/admin';
       } else {
         console.error('Error updating user');
