@@ -85,38 +85,29 @@ const SignupForm = (params) => {
   const saveUser = async (data) => {
     data.role = params.role;
     const { confirmPassword, Charity, ...user } = data;
-    console.log(
-      "SAVE USER user",
-      user,
-      "data",
-      data,
-      "role",
-      data.role,
-      "Charity",
-      Charity
-    );
+
 
     try {
       const res = await registerUser(user);
       //If the user is a charity, update the charity user
       if (Charity && Charity.length > 0) {
         await updateCharityUser(res.id, Charity);
-        console.log("Charity updated");
+   
       }
       //If the user is a student, create a student
       if (data.role == "student") {
         await createStudent(res.id);
-        console.log("Student created");
+
       }
 
       toast.success("User registered successfully");
       router.push("/auth/signin");
     } catch (error) {
-      console.log("Error registering user", error);
+  
       toast.error("Error registering user");
     }
   };
-  console.log("SignupForm");
+
   return (
     <form
       onSubmit={handleSubmit(saveUser)}

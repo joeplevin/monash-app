@@ -58,7 +58,7 @@ const AdminHome = () => {
         );
         
       } else {
-        
+        console.error('Error deleting admin user');
       }
     } catch (error) {
     

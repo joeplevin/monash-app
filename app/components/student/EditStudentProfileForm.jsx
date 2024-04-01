@@ -49,7 +49,7 @@ const StudentProfileSchema = z.object({
 });
 
 const EditStudentProfileForm = (student) => {
-  console.log("student", student);
+
   const {
     register,
     handleSubmit,
@@ -67,16 +67,15 @@ const EditStudentProfileForm = (student) => {
     data.email = student.student.user.email;
     // data.password = student.student.user.password;
 
-    console.log("profile edit data", data);
     const { ...user } = data;
-    console.log("this is the fucking data", data);
+ 
     try {
       const res = await updateUserDetails(user);
       toast.success("Saved successfully");
       router.push("/student");
     } catch (error) {
       toast.error("Error saving student profile");
-      console.log("profile error", error);
+
     }
   };
   return (

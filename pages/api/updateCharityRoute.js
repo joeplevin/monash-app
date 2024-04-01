@@ -6,8 +6,6 @@ export default async function handler(req, res) {
   if (req.method === 'PUT') {
     const { id, charityName, charityDescription, charityLocation, charityWebsite } = req.body;
 
-    console.log('Received PUT request to update charity with id:', id);
-    console.log('Request body:', req.body);
 
     try {
       const updatedCharity = await prisma.charity.update({
@@ -20,7 +18,6 @@ export default async function handler(req, res) {
         },
       });
 
-      console.log('Updated charity:', updatedCharity);
 
       res.status(200).json(updatedCharity);
     } catch (error) {
