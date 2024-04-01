@@ -15,12 +15,15 @@ const PDFView = (url) => {
     setNumPages(numPages);
   }
 
-  console.log("cv Url PDF View", url.cvUrl);
   return (
     <>
       <div className="justify-center items-center">
         <Document file={url.cvUrl} onLoadSuccess={onDocumentLoadSuccess}>
-          <Page pageNumber={pageNumber} renderTextLayer={false} />
+          <Page
+            pageNumber={pageNumber}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
         </Document>
       </div>
       <div>

@@ -60,9 +60,7 @@ const SignupFormSchema = z
   });
 
 const SignupForm = (params) => {
-  console.log("SignupForm", params.charities);
   const formCharities = params.charities || [];
-  console.log("form charities", params.charities);
   const {
     register,
     handleSubmit,
@@ -73,7 +71,6 @@ const SignupForm = (params) => {
     resolver: zodResolver(SignupFormSchema),
   });
   const router = useRouter();
-  console.log("form charities", formCharities);
   const [passStrength, setPassStrength] = useState(0);
   const [isVisiblePass, setIsVisiblePass] = useState(false);
   useEffect(() => {
@@ -85,28 +82,16 @@ const SignupForm = (params) => {
   const saveUser = async (data) => {
     data.role = params.role;
     const { confirmPassword, Charity, ...user } = data;
-    console.log(
-      "SAVE USER user",
-      user,
-      "data",
-      data,
-      "role",
-      data.role,
-      "Charity",
-      Charity
-    );
 
     try {
       const res = await registerUser(user);
       //If the user is a charity, update the charity user
       if (Charity && Charity.length > 0) {
         await updateCharityUser(res.id, Charity);
-        console.log("Charity updated");
       }
       //If the user is a student, create a student
       if (data.role == "student") {
         await createStudent(res.id);
-        console.log("Student created");
       }
 
       toast.success("User registered successfully");
@@ -116,7 +101,6 @@ const SignupForm = (params) => {
       toast.error("Error registering user");
     }
   };
-  console.log("SignupForm");
   return (
     <form
       onSubmit={handleSubmit(saveUser)}

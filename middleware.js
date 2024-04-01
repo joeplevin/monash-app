@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    console.log("middleware", req.nextauth);
     if (
       req.nextUrl.pathname.startsWith("/student") &&
       req.nextauth.token?.user.role !== "student"

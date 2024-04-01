@@ -38,7 +38,7 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @unique @default(cuid())
   firstName     String
   lastName      String
   password      String
@@ -56,22 +56,23 @@ model User {
 }
 
 model Student {
-  id           String        @id @default(cuid())
-  userId       String        @unique
-  user         User          @relation(fields: [userId], references: [id])
+  id           String         @id @unique @default(cuid())
+  userId       String         @unique
+  user         User           @relation(fields: [userId], references: [id])
   Cv           Cv?
   Jobs         Job[]
   Certificates Certificate[]
+  Applicants   Applications[]
 }
 
 model Charity {
   id           String        @id @unique @default(cuid())
+  name         String        @default("")
+  description  String        @default("")
+  location     String        @default("")
   userId       String        @unique
-  name         String        @default("Charity Name")
-  description  String        @default("Charity Description")
-  location     String        @default("Charity Location")
   user         User[]
-  Jobs         Job[]
+  jobs         Job[]
   Certificates Certificate[]
 }
 
@@ -82,21 +83,31 @@ model Admin {
 }
 
 model Job {
-  id          String     @id @default(cuid())
+  id          String         @id @unique @default(cuid())
   title       String
   description String
   location    String
-  completed   Boolean
-  progress    String
+  completed   Boolean?
+  progress    String?
   charityId   String
-  charity     Charity    @relation(fields: [charityId], references: [userId])
+  charity     Charity        @relation(fields: [charityId], references: [id])
   studentId   String?
-  student     Student?   @relation(fields: [studentId], references: [userId])
+  student     Student?       @relation(fields: [studentId], references: [userId])
   cvSkills    CvSkills[]
+  applicants  Applications[]
+}
+
+model Applications {
+  id                String  @id @unique @default(cuid())
+  jobId             String
+  job               Job     @relation(fields: [jobId], references: [id])
+  studentId         String
+  student           Student @relation(fields: [studentId], references: [userId])
+  applicationStatus String
 }
 
 model Certificate {
-  id             String  @id @default(cuid())
+  id             String  @id @unique @default(cuid())
   title          String
   description    String
   charityId      String
@@ -107,7 +118,8 @@ model Certificate {
 }
 
 model Cv {
-  id        String     @id @default(cuid())
+  id        String     @id @unique @default(cuid())
+  fileName  String     @default("CV")
   cvUrl     String
   studentId String     @unique
   student   Student    @relation(fields: [studentId], references: [userId])
@@ -115,7 +127,7 @@ model Cv {
 }
 
 model CvSkills {
-  id    String @id @default(cuid())
+  id    String @id @unique @default(cuid())
   skill String
   cvId  String
   cv    Cv[]

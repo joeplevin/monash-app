@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @unique @default(cuid())
+  firstName     String
+  lastName      String
+  password      String
+  email         String    @unique
+  role          String
+  emailVerified DateTime?
+  phone         String
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  Student       Student?
+  charityId     String?
+  Charity       Charity?  @relation(fields: [charityId], references: [id])
+  Admin         Admin?
+}
+
+model Student {
+  id           String         @id @unique @default(cuid())
+  userId       String         @unique
+  user         User           @relation(fields: [userId], references: [id])
+  Cv           Cv?
+  Jobs         Job[]
+  Certificates Certificate[]
+  Applicants   Applications[]
+}
+
+model Charity {
+  id           String        @id @unique @default(cuid())
+  userId       String        @unique
+  name         String        @default("Charity Name")
+  description  String        @default("Charity Description")
+  location     String        @default("Charity Location")
+  user         User[]
+  Jobs         Job[]
+  Certificates Certificate[]
+}
+
+model Admin {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model Job {
+  id          String         @id @unique @default(cuid())
+  title       String
+  description String
+  location    String
+  completed   Boolean?       @default(false)
+  progress    String?
+  charityId   String
+  charity     Charity        @relation(fields: [charityId], references: [userId])
+  studentId   String?
+  student     Student?       @relation(fields: [studentId], references: [userId])
+  cvSkills    CvSkills[]
+  applicants  Applications[]
+}
+
+model Certificate {
+  id             String  @id @unique @default(cuid())
+  title          String
+  description    String
+  charityId      String
+  certificateUrl String
+  charity        Charity @relation(fields: [charityId], references: [userId])
+  studentId      String
+  student        Student @relation(fields: [studentId], references: [userId])
+}
+
+model Cv {
+  id        String     @id @unique @default(cuid())
+  fileName  String     @default("CV")
+  cvUrl     String
+  studentId String     @unique
+  student   Student    @relation(fields: [studentId], references: [userId])
+  CvSkills  CvSkills[]
+}
+
+model CvSkills {
+  id    String @id @default(cuid())
+  skill String
+  cvId  String
+  cv    Cv[]
+  jobId String
+  job   Job[]
+}
+
+model Applications {
+  id                String  @id @unique @default(cuid())
+  jobId             String
+  job               Job     @relation(fields: [jobId], references: [id])
+  studentId         String
+  student           Student @relation(fields: [studentId], references: [userId])
+  applicationStatus String
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
