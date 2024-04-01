@@ -20,8 +20,8 @@ import PasswordStrength from "../auth/PasswordStrength";
 import { updateUserDetails } from "@/lib/actions/userActions";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { getStudent } from "@/lib/actions/studentActions";
-
+import { getStudent } from "@/lib/actions/studentActions1";
+import UploadCV from "./uploadCV";
 // find a way to import cvs, jobs & certificates
 // display them in the form
 // delete/add new in the form
@@ -69,7 +69,7 @@ const EditStudentProfileForm = (student) => {
 
     console.log("profile edit data", data);
     const { ...user } = data;
-    console.log("this is the fucking data", data);
+    console.log("this is the data", data);
     try {
       const res = await updateUserDetails(user);
       toast.success("Saved successfully");
@@ -80,50 +80,53 @@ const EditStudentProfileForm = (student) => {
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit(submitEditStudent)}
-      className="grid grid-cols-2 gap-3 p-2 place-self-stretch shadow border rounded-md"
-    >
-      <Input
-        errorMessage={errors.firstName?.message}
-        isInvalid={!!errors.firstName}
-        {...register("firstName")}
-        label="First Name"
-        defaultValue={student.student.user.firstName}
-        startContent={<UserIcon className="w-4" />}
-      />
-      <Input
-        errorMessage={errors.lastName?.message}
-        isInvalid={!!errors.lastName}
-        {...register("lastName")}
-        label="Last Name"
-        defaultValue={student.student.user.lastName}
-        startContent={<UserIcon className="w-4" />}
-      />
-      <Input
-        errorMessage={errors.email?.message}
-        isInvalid={!!errors.email}
-        {...register("email")}
-        className="col-span-2"
-        label="Email"
-        defaultValue={student.student.user.email}
-        startContent={<EnvelopeIcon className="w-4" />}
-      />
-      <Input
-        errorMessage={errors.phone?.message}
-        isInvalid={!!errors.phone}
-        {...register("phone")}
-        className="col-span-2"
-        label="Phone"
-        defaultValue={student.student.user.phone}
-        startContent={<PhoneIcon className="w-4" />}
-      />
-      <div className="flex justify-center col-span-2">
-        <Button className="w-48" color="primary" type="submit">
-          Submit
-        </Button>
-      </div>
-    </form>
+    <>
+      <UploadCV user={student.student.user} />
+      <form
+        onSubmit={handleSubmit(submitEditStudent)}
+        className="grid grid-cols-2 gap-3 p-2 place-self-stretch shadow border rounded-md"
+      >
+        <Input
+          errorMessage={errors.firstName?.message}
+          isInvalid={!!errors.firstName}
+          {...register("firstName")}
+          label="First Name"
+          defaultValue={student.student.user.firstName}
+          startContent={<UserIcon className="w-4" />}
+        />
+        <Input
+          errorMessage={errors.lastName?.message}
+          isInvalid={!!errors.lastName}
+          {...register("lastName")}
+          label="Last Name"
+          defaultValue={student.student.user.lastName}
+          startContent={<UserIcon className="w-4" />}
+        />
+        <Input
+          errorMessage={errors.email?.message}
+          isInvalid={!!errors.email}
+          {...register("email")}
+          className="col-span-2"
+          label="Email"
+          defaultValue={student.student.user.email}
+          startContent={<EnvelopeIcon className="w-4" />}
+        />
+        <Input
+          errorMessage={errors.phone?.message}
+          isInvalid={!!errors.phone}
+          {...register("phone")}
+          className="col-span-2"
+          label="Phone"
+          defaultValue={student.student.user.phone}
+          startContent={<PhoneIcon className="w-4" />}
+        />
+        <div className="flex justify-center col-span-2">
+          <Button className="w-48" color="primary" type="submit">
+            Submit
+          </Button>
+        </div>
+      </form>
+    </>
   );
 };
 

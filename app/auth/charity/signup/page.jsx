@@ -1,6 +1,6 @@
 import SignupForm from "@/app/components/auth/SignupForm";
 import { Image } from "@nextui-org/react";
-import { getCharities } from "@/lib/actions/charityActions";
+import { getCharities } from "@/lib/actions/charityActions1";
 import Link from "next/link";
 
 const SignupPage = async () => {

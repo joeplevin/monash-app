@@ -43,47 +43,49 @@ const SigninForm = (params) => {
     router.push(params.callbackUrl ? params.callbackUrl : "/");
   };
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-2 p-2 border rounded-md"
-    >
-      <div className="text-white text-center">Sign In Form</div>
-      <div className="p-2 flex flex-col gap-2">
-        <Input
-          label="Email"
-          {...register("email")}
-          errorMessage={errors.email?.message}
-        />
-        <Input
-          label="Password"
-          type={visiblePass ? "text" : "password"}
-          {...register("password")}
-          errorMessage={errors.password?.message}
-          endContent={
-            <button
-              type="button"
-              onClick={() => setVisiblePass((prev) => !prev)}
-            >
-              {visiblePass ? (
-                <EyeIcon className="w-4" />
-              ) : (
-                <EyeSlashIcon className="w-4" />
-              )}
-            </button>
-          }
-        />
-      </div>
-      <div className="flex items-center justify-center gap-2">
-        <Button
-          color="primary"
-          type="submit"
-          disabled={isSubmitting}
-          isLoading={isSubmitting}
-        >
-          {isSubmitting ? "Signing In..." : "Sign In"}
-        </Button>
-      </div>
-    </form>
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-2 p-2 border rounded-md"
+      >
+        <div className="text-white text-center">Sign In Form</div>
+        <div className="p-2 flex flex-col gap-2">
+          <Input
+            label="Email"
+            {...register("email")}
+            errorMessage={errors.email?.message}
+          />
+          <Input
+            label="Password"
+            type={visiblePass ? "text" : "password"}
+            {...register("password")}
+            errorMessage={errors.password?.message}
+            endContent={
+              <button
+                type="button"
+                onClick={() => setVisiblePass((prev) => !prev)}
+              >
+                {visiblePass ? (
+                  <EyeIcon className="w-4" />
+                ) : (
+                  <EyeSlashIcon className="w-4" />
+                )}
+              </button>
+            }
+          />
+        </div>
+        <div className="flex items-center justify-center gap-2">
+          <Button
+            color="primary"
+            type="submit"
+            disabled={isSubmitting}
+            isLoading={isSubmitting}
+          >
+            {isSubmitting ? "Signing In..." : "Sign In"}
+          </Button>
+        </div>
+      </form>
+    </>
   );
 };
 

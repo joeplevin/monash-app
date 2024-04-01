@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -12,7 +10,6 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 import Link from "next/link";
-
 const StudentNav = () => {
   return (
     <Navbar isBordered maxWidth="full">
@@ -47,5 +44,4 @@ const StudentNav = () => {
     </Navbar>
   );
 };
-
 export default StudentNav;
