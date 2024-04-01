@@ -120,12 +120,12 @@ const EditCharityJobForm = (job) => {
                 defaultValue={job.job.location}
                 {...register("location")}
               />
-              <Select
+              {/* <Select
                 className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
                 label="Choose new Required Skills"
                 defaultValue={job.job.skills}
                 {...register("skills")}
-              ></Select>
+              ></Select> */}
 
               <Button
                 className="m-5 border-default-300 text-white justify-center left-[210px]"

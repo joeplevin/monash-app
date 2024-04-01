@@ -11,6 +11,8 @@ import {
   Input,
   Select,
   SelectItem,
+  Checkbox,
+  CheckboxGroup,
 } from "@nextui-org/react";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
@@ -72,7 +74,7 @@ const CreateJobCard = (params) => {
   const saveJob = async (data) => {
     console.log("Data", data);
     const { charityId, ...job } = data;
-    console.log("Job", params.charity);
+    console.log("Job", params.charity.charity);
     try {
       const res = await createJob(job, params.charity);
       toast.success("Job created successfully");
@@ -95,11 +97,11 @@ const CreateJobCard = (params) => {
         Main Page
       </Button>
 
-      <div className="flex flex-col grid-rows-2 p-5">
+      <div className="flex flex-col grid-rows-2 p-5 justify-center items-center">
         <br />
         <br />
 
-        <Card className="w-[850px] h-90 left-[520px]">
+        <Card className="w-[55%] h-90">
           <h1>
             <center>
               <b>
@@ -107,52 +109,49 @@ const CreateJobCard = (params) => {
               </b>
             </center>
           </h1>
-          <CardBody className="w-[850px] h-90 left-[100px]">
-            <form onSubmit={handleSubmit(saveJob)}>
+          <CardBody className="w-[850px] h-90 mx-auto ">
+            <form onSubmit={saveJob} className="flex flex-col items-center">
               <Input
                 errorMessage={errors.title?.message}
-                className=" flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
+                className=" mx-auto gap-4 p-2 m-5 w-[75%]"
                 placeholder="Enter your job title here"
                 label="Job Title"
                 {...register("title")}
               />
               <Input
                 errorMessage={errors.description?.message}
-                className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
+                className="flex flex-wrap md:flex-nowrap gap-4 p-2 m-5 w-[75%]"
                 placeholder="Enter your job description here"
                 label="Job Description"
                 {...register("description")}
               />
               <Input
                 errorMessage={errors.location?.message}
-                className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
+                className="flex flex-wrap md:flex-nowrap gap-4 p-2 m-5 w-[75%]"
                 placeholder="Enter your job location here"
                 label="Job Location"
                 {...register("location")}
               />
-
-              <Select
-                label="Choose Required Skills"
-                placeholder="Select skills"
-                selectionMode="multiple"
-                className="flex w-full flex-wrap md:flex-nowrap gap-4 p-2 m-5 max-w-xl"
-                {...register("cvSkills")}
-              >
+              <div className="grid grid-cols-7 md:flex-nowrap gap-[1%] p-2 m-2 max-w-xl w-full ">
                 {params.skills.map((skill, index) => (
-                  <SelectItem key={index} value={skill.id}>
+                  <SelectItem
+                    key={index}
+                    value={skill.id}
+                    {...register("cvSkills")}
+                  >
                     {skill.skill}
                   </SelectItem>
                 ))}
-              </Select>
 
-              <Button
-                className="m-5 border-default-300 text-white"
-                color="success"
-                size="md"
-                type="submit"
-              >
-                Add Job
-              </Button>
+                <Button
+                  className="m-10 border-default-300 text-white"
+                  color="success"
+                  size="md"
+                  type="submit"
+                >
+                  Add Job
+                </Button>
+              </div>
             </form>
           </CardBody>
         </Card>
