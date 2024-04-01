@@ -14,9 +14,13 @@ const ApplicationsPage = async ({ params }) => {
   console.log("Job Applications", jobApplications);
 
   return (
-    <div>
-      <h1>Job Applications</h1>
-      <Card className="flex flex-wrap justify-center p-5 w-[900px] h-[950px] absolute">
+    <>
+      <h1>
+        <center>Applications Page</center>
+      </h1>
+      <br></br>
+      <br></br>
+      <div className="flex flex-wrap justify-center px-5">
         {jobApplications.length > 0 ? (
           jobApplications.map((jobApplication) => (
             <CharityApproval jobApplication={jobApplication} />
@@ -24,8 +28,8 @@ const ApplicationsPage = async ({ params }) => {
         ) : (
           <p>No applications available</p>
         )}
-      </Card>
-    </div>
+      </div>
+    </>
   );
 };
 

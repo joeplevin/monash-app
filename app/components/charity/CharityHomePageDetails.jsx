@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import { Card, CardHeader, CardBody, Button, Link } from "@nextui-org/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Button,
+  Link,
+  Tooltip,
+} from "@nextui-org/react";
 import { PencilIcon } from "@heroicons/react/20/solid";
 
 const CharityHomePageDetails = (charity) => {
@@ -14,17 +21,18 @@ const CharityHomePageDetails = (charity) => {
           <CardBody className="flex justify-between">
             <p className="text-large flex justify-left text-left w-[100px]">
               {charity.charity.name}
-              <Button
-                as={Link}
-                href="/charity/editcharityprofile"
-                className=" w-[10px] h-[30px] left-[200px]"
-              >
-                <PencilIcon />
-              </Button>
+              <Tooltip content="Edit Charity Profile" placement="top">
+                <Button
+                  as={Link}
+                  href="/charity/editcharityprofile"
+                  className=" w-[10px] h-[30px] left-[200px]"
+                >
+                  <PencilIcon />
+                </Button>
+              </Tooltip>
             </p>
             <br></br>
             <p className="text-md">{charity.charity.description}</p>
-            <br></br>
             <br></br>
             <p className="text-md">{charity.charity.location}</p>
           </CardBody>

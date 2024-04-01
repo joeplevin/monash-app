@@ -44,9 +44,9 @@ const CharityHomePage = async () => {
 
   return (
     <>
-      <h1>
+      <h1 class="text-2xl">
         <center>
-          <b>Charity Profile Jobs</b>
+          <b>Charity Homepage</b>
         </center>
       </h1>
       <Tooltip content="Create a new job" placement="right">
@@ -61,11 +61,11 @@ const CharityHomePage = async () => {
           <PlusCircleIcon />
         </Button>
       </Tooltip>
-      <h1>Your Jobs</h1>
+      <h1 class="text-left text-lg"></h1>
       <br></br>
       <br></br>
       <div className="flex justify-center">
-        <Card className=" flex flex-wrap justify-center p-5 w-[900px] h-[1000px] right-[40px]">
+        <Card className=" flex flex-wrap justify-center p-5 w-[900px] h-[1500px] right-[40px]">
           <div className="flex flex-wrap justify-center p-5">
             {charityJobs.length > 1 ? (
               charityJobs.map((charityJob) => (
@@ -81,7 +81,7 @@ const CharityHomePage = async () => {
           </div>
         </Card>
         <div className="flex justify-center">
-          <Card className="flex flex-wrap justify-center p-5 w-[900px] h-[1000px] left-[40px] ">
+          <Card className="flex flex-wrap p-5 w-[900px] h-[1500px] left-[40px] ">
             <h1>
               <center>Your Charity Details</center>
             </h1>

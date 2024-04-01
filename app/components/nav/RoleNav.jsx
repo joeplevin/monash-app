@@ -13,9 +13,9 @@ const RoleNav = () => {
       {session && session.user.role == "student" ? (
         <StudentNav />
       ) : session && session.user.role == "admin" ? (
-        <div>Admin Nav</div>
+        <div>Not logged in</div>
       ) : session && session.user.role == "charity" ? (
-        <div>charity nav</div>
+        <div>Not logged in</div>
       ) : (
         <></>
       )}

@@ -1,6 +1,6 @@
 import CreateJobCard from "@/app/components/charity/CharityCreateJobForm";
 import React from "react";
-import { getCharity } from "@/lib/actions/charityActions";
+import { getCharity, getCvSkills } from "@/lib/actions/charityActions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
@@ -11,7 +11,11 @@ const CharityCreateJobPage = async () => {
   console.log("user", user);
   const charity = await getCharity(user.id);
   console.log("charity", charity);
+  const cvSkills = await getCvSkills();
+  console.log("Page CV skills", cvSkills);
+  const skills = cvSkills.map((skill) => skill);
+  console.log("Skills", skills);
 
-  return <CreateJobCard charity={charity} />;
+  return <CreateJobCard charity={charity} skills={skills} />;
 };
 export default CharityCreateJobPage;
