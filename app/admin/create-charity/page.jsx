@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Home = async () => {
   const charities = await getCharities();
-  console.log(charities);
+  
 
 
   return (

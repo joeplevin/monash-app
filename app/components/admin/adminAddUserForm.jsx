@@ -58,7 +58,7 @@ const CreateAdminUser = () => {
     }
 
     try {
-      console.log('User data:', userData);
+      
       const response = await fetch('../api/createAdminUserRoute', {
         method: 'POST',
         headers: {
@@ -69,7 +69,7 @@ const CreateAdminUser = () => {
   
       if (response.ok) {
         const data = await response.json();
-        console.log('Admin user created:', data);
+       
         window.location.href = '/admin';
       } else {
         console.error('Error creating admin user');
