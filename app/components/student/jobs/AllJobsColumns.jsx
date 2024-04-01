@@ -12,7 +12,7 @@ export const columns = [
 
 export const renderCell = (job, columnKey) => {
   const cellValue = getKeyValue(job, columnKey);
-  console.log("alljobs table skills", job.cvSkills);
+  console.log("alljobs table skills", job);
   switch (columnKey) {
     case "title":
       return <Link href={`/student/jobs/${job.id}`}>{cellValue}</Link>;
@@ -20,21 +20,11 @@ export const renderCell = (job, columnKey) => {
       return job.charity.name;
     case "application":
       return job.status == "in progress" ? (
-        <Button
-          as={Link}
-          href={`/student/applications/${job.id}`}
-          isDisabled
-          className="bg-orange-400 max-h-6"
-        >
+        <Button isDisabled className="bg-orange-400 max-h-6">
           <p className="text-xs">In Progress</p>
         </Button>
       ) : job.status == "rejected" ? (
-        <Button
-          as={Link}
-          href={`/student/applications/${job.id}`}
-          isDisabled
-          className="bg-red-400 max-h-6"
-        >
+        <Button isDisabled className="bg-red-400 max-h-6">
           <p className="text-xs">Rejected</p>
         </Button>
       ) : (
@@ -56,9 +46,14 @@ export const renderCell = (job, columnKey) => {
       );
     case "skills":
       return job.cvSkills.map((skill) => (
-        <span key={skill.id} className="text-xs">
-          {skill.skill}
-        </span>
+        <div className="">
+          <span
+            key={skill.id}
+            className="inline text-xs m-1 gap-1 p-1 max-w-fit"
+          >
+            {skill.skill}
+          </span>
+        </div>
       ));
     case "actions":
       return (
