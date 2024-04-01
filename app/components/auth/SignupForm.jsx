@@ -19,6 +19,10 @@ import { passwordStrength } from "check-password-strength";
 import PasswordStrength from "./PasswordStrength";
 import { registerUser } from "@/lib/actions/authActions";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { getCharities } from "@/lib/actions/charityActions";
+import { createStudent } from "@/lib/actions/studentActions";
+import { updateCharityUser } from "@/lib/actions/charityActions";
 
 const SignupFormSchema = z
   .object({
@@ -48,13 +52,15 @@ const SignupFormSchema = z
       .string()
       .min(8, "Password is too short")
       .max(50, "Password is too long"),
+    Charity: z.string().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"],
   });
 
-const SignupForm = () => {
+const SignupForm = (params) => {
+  const formCharities = params.charities || [];
   const {
     register,
     handleSubmit,
@@ -64,22 +70,37 @@ const SignupForm = () => {
   } = useForm({
     resolver: zodResolver(SignupFormSchema),
   });
+  const router = useRouter();
   const [passStrength, setPassStrength] = useState(0);
   const [isVisiblePass, setIsVisiblePass] = useState(false);
   useEffect(() => {
     setPassStrength(passwordStrength(watch().password).id);
   }, [watch().password]);
   const togglePassVisibility = () => setIsVisiblePass((prev) => !prev);
+
+  //Save the user to the database - dependent on role.
   const saveUser = async (data) => {
-    const { confirmPassword, ...user } = data;
+    data.role = params.role;
+    const { confirmPassword, Charity, ...user } = data;
+
     try {
       const res = await registerUser(user);
+      //If the user is a charity, update the charity user
+      if (Charity && Charity.length > 0) {
+        await updateCharityUser(res.id, Charity);
+      }
+      //If the user is a student, create a student
+      if (data.role == "student") {
+        await createStudent(res.id);
+      }
+
       toast.success("User registered successfully");
+      router.push("/auth/signin");
     } catch (error) {
+      console.log("Error registering user", error);
       toast.error("Error registering user");
     }
   };
-  console.log("SignupForm");
   return (
     <form
       onSubmit={handleSubmit(saveUser)}
@@ -149,7 +170,18 @@ const SignupForm = () => {
         type={isVisiblePass ? "text" : "password"}
         startContent={<KeyIcon className="w-4" />}
       />
-
+      {formCharities.length > 0 && params.role == "charity" ? (
+        <select {...register("Charity")} className="col-span-2" label="Charity">
+          <option value="">Select Charity</option>
+          {formCharities.map((charity) => (
+            <option key={charity.id} value={charity.id}>
+              {charity.name}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <> </>
+      )}
       <div className="flex justify-center col-span-2">
         <Button className="w-48" color="primary" type="submit">
           Submit

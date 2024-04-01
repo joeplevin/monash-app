@@ -1,11 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Nav from "./components/Nav";
+import Nav from "./components/nav/Nav";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getSession } from "next-auth/react";
-import StudentNav from "./components/StudentNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
