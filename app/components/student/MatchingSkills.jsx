@@ -12,7 +12,7 @@ const MatchingSkills = ({ matchedSkills }) => {
         <CardBody>
           {matchedSkills.length > 0 ? (
             matchedSkills.map((skill, index) => (
-              <Button isDisabled className="col-span-1 m-5 p-1">
+              <Button key={skill.id} isDisabled className="col-span-1 m-5 p-1">
                 {skill}
               </Button>
             ))

@@ -13,6 +13,7 @@ const MatchingJobs = ({ matchedJobs }) => {
           {matchedJobs.length > 0 ? (
             matchedJobs.map((job, index) => (
               <Button
+                key={job.id}
                 as={Link}
                 href={`/students/applications/new-application/${job.id}`}
                 className="col-span-1 m-5 p-1"

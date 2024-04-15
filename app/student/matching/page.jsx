@@ -71,26 +71,32 @@ const Matching = async () => {
         }
       }
     }
+    console.log("matchedSkills", matchedSkills);
     // remove duplicates
     matchedJobIds = Array.from(new Set(matchedJobIds));
     // get job details for matched job ids
     for (let i = 0; i < matchedJobIds.length; i++) {
       const finalJob = await getJob(matchedJobIds[i]);
+      console.log("finalJob:", finalJob);
       finalJobs.push(finalJob);
     }
     // remove duplicates
     matchedSkills = Array.from(new Set(matchedSkills));
+    console.log("matching skills:", matchedSkills);
 
     // store matched cv skills to all db skills in db for future reference
     // get Skills list from the database & convert to lowercase
-
-    for (let skill of lowercaseResumeSkills) {
-      for (let dbSkill of cvSkills) {
-        if (skill == dbSkill.skill) {
-          try {
-            await addCvSkill(student.Cv.id, dbSkill);
-          } catch (error) {
-            console.error("Error creating cv skill", error);
+    const studentCVSkills = student.Cv.CvSkills;
+    if (studentCVSkills.length == 0) {
+      for (let skill of lowercaseResumeSkills) {
+        for (let dbSkill of cvSkills) {
+          // console.log("dbSkill:", dbSkill);
+          if (skill == dbSkill.skill) {
+            try {
+              await addCvSkill(student.Cv.id, dbSkill);
+            } catch (error) {
+              console.error("Error creating cv skill", error);
+            }
           }
         }
       }

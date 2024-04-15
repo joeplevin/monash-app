@@ -127,11 +127,11 @@ model Cv {
 }
 
 model CvSkills {
-  id    String @id @unique @default(cuid())
+  id    String  @id @unique @default(cuid())
   skill String
   cvId  String
   cv    Cv[]
-  jobId String
+  jobId String?
   job   Job[]
 }
 
