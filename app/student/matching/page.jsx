@@ -2,9 +2,9 @@ import React from "react";
 import {
   getCvSkillList,
   getJobsBySkills,
-  getJobs,
   getJob,
 } from "@/lib/actions/charityActions";
+import { getJobs } from "@/lib/actions/jobActions";
 import MatchingSkills from "@/app/components/student/MatchingSkills";
 import MatchingJobs from "@/app/components/student/MatchingJobs";
 import { all } from "axios";

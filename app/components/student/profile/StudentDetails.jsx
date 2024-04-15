@@ -30,26 +30,28 @@ const StudentDetails = ({ student }) => {
           </h1>
           <h1>{student?.user?.email}</h1>
           <h1>{student?.user?.phone}</h1>
-            {student?.Cv ? (
-              <Button as={Link} href="/student/view-cv">
-                <h1>CV</h1>
-                <DocumentIcon className="w-4" />
-              </Button>
-            ) : (
-              <Button as={Link} href="/student/upload-cv">
-                Upload CV
-              </Button>
-            )}
-            <div>
-            {student?.Certificates ? {
-              student?.Certificates.map((certificate) => (
+          {student?.Cv ? (
+            <Button as={Link} href="/student/view-cv">
+              <h1>CV</h1>
+              <DocumentIcon className="w-4" />
+            </Button>
+          ) : (
+            <Button as={Link} href="/student/upload-cv">
+              Upload CV
+            </Button>
+          )}
+          <div>
+            {student?.Certificates ? (
+              student.Certificates?.map((certificate) => (
                 <Button as={Link} href="/student/view-cv">
-                <h1>Certificate</h1>
-                <DocumentIcon className="w-4" />
-              </Button>
+                  <h1>Certificate</h1>
+                  <DocumentIcon className="w-4" />
+                </Button>
               ))
-            }}
-            </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </CardBody>
       <CardFooter></CardFooter>
