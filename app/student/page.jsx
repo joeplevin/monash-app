@@ -23,8 +23,14 @@ const StudentProfile = async () => {
     <>
       <div className="grid grid-cols-3 grid-rows-3">
         <StudentDetails className="col-span-1 row-span-1" student={student} />
-        <MatchingJobs matchedJobs={matched.finalJobs} />
-        <MatchingSkills matchedSkills={matched.matchedSkills} />
+        {student.Cv ? (
+          <>
+            <MatchingJobs matchedJobs={matched.finalJobs} />
+            <MatchingSkills matchedSkills={matched.matchedSkills} />
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

@@ -36,9 +36,7 @@ const StudentDetails = ({ student }) => {
               <DocumentIcon className="w-4" />
             </Button>
           ) : (
-            <Button as={Link} href="/student/upload-cv">
-              Upload CV
-            </Button>
+            <UploadCV />
           )}
           <div>
             {student?.Certificates ? (

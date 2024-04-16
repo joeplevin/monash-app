@@ -60,6 +60,7 @@ const SignupFormSchema = z
   });
 
 const SignupForm = (params) => {
+  console.log("params", params);
   const formCharities = params.charities || [];
   const {
     register,
@@ -82,6 +83,8 @@ const SignupForm = (params) => {
   const saveUser = async (data) => {
     data.role = params.role;
     const { confirmPassword, Charity, ...user } = data;
+    console.log("data", data);
+    console.log("user", user);
 
     try {
       const res = await registerUser(user);
